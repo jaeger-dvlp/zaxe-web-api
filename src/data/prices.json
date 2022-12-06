@@ -1,0 +1,172 @@
+[
+  {
+    "name": "Zaxe Z3",
+    "slug": "zaxe-z3",
+    "category": "3dprinters",
+    "price": {
+      "tr": "65.900₺",
+      "en": "3.799€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "80",
+    "isInstock": true,
+    "isVariable": false,
+    "isUpdatable": false
+  },
+  {
+    "name": "Zaxe X3",
+    "slug": "zaxe-x3",
+    "category": "3dprinters",
+    "price": {
+      "tr": "36.900₺",
+      "en": "2.149€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "198",
+    "isInstock": true,
+    "isVariable": false,
+    "isUpdatable": false
+  },
+  {
+    "name": "Zaxe ABS",
+    "slug": "zaxe-abs",
+    "category": "filaments",
+    "price": {
+      "tr": "295₺",
+      "en": "23€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "230",
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "Zaxe PLA",
+    "slug": "zaxe-pla",
+    "category": "filaments",
+    "price": {
+      "tr": "315₺",
+      "en": "24€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "295",
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "Zaxe PETG",
+    "slug": "zaxe-petg",
+    "category": "filaments",
+    "price": {
+      "tr": "330₺",
+      "en": "25€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "296",
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "Zaxe FLEX",
+    "slug": "zaxe-flex",
+    "category": "filaments",
+    "price": {
+      "tr": "340₺",
+      "en": "25€"
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": "320",
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "BASF PETCF15",
+    "slug": "basf-petcf15",
+    "category": "filaments",
+    "price": {
+      "tr": null,
+      "en": null
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": null,
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "BASF Polyamid",
+    "slug": "basf-polyamid",
+    "category": "filaments",
+    "price": {
+      "tr": null,
+      "en": null
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": null,
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "BASF ASA",
+    "slug": "basf-asa",
+    "category": "filaments",
+    "price": {
+      "tr": null,
+      "en": null
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": null,
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  },
+  {
+    "name": "BASF Nylon",
+    "slug": "basf-nylon",
+    "category": "filaments",
+    "price": {
+      "tr": null,
+      "en": null
+    },
+    "salePrice": {
+      "tr": null,
+      "en": null
+    },
+    "wcID": null,
+    "isInstock": true,
+    "isVariable": true,
+    "isUpdatable": false
+  }
+]
