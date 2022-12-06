@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Zaxe Web API",
   "main": "src/index.js",
-  "repository": "git@github.com:zaxe3d/zaxe-web-api.git",
+  "repository": "git@github.com:jaeger-dvlp/zaxe-web-api.git",
   "author": "JAEGER <omer.kayalar0101@icloud.com>",
   "license": "MIT",
   "scripts": {
