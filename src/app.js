@@ -29,7 +29,7 @@ app.use(morgan('zaxe'));
 app.use('/v1', V1Router);
 app.use('*', (req, res) => {
   res.status(404).send({
-    status: 'ERROR',
+    status: 'error',
     error: 'Bzzt! Bzzt! Endpoint not found.',
   });
 });
