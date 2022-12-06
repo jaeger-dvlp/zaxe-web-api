@@ -10,7 +10,7 @@ const getAllPrices = async (req, res) => {
   } catch (error) {
     await res.status(error?.status || 500).send({
       status: 'error',
-      error: error?.message || error,
+      message: error?.message || error,
     });
   }
 };
@@ -32,7 +32,7 @@ const getPricesBySlug = async (req, res) => {
   } catch (error) {
     await res.status(error?.status || 500).send({
       status: 'error',
-      error: error?.message || error,
+      message: error?.message || error,
     });
   }
 };
@@ -54,7 +54,7 @@ const getPricesByCategory = async (req, res) => {
   } catch (error) {
     await res.status(error?.status || 500).send({
       status: 'error',
-      error: error?.message || error,
+      message: error?.message || error,
     });
   }
 };

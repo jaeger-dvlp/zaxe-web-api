@@ -30,7 +30,7 @@ app.use('/v1', V1Router);
 app.use('*', (req, res) => {
   res.status(404).send({
     status: 'error',
-    error: 'Bzzt! Bzzt! Endpoint not found.',
+    message: 'Bzzt! Bzzt! Endpoint not found.',
   });
 });
 
