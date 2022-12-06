@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const CodeError = require('../../utils/CodeError');
+const CodeError = require('@/src/classes/CodeError');
 
 const getPriceJSON = () =>
   JSON.parse(

@@ -1,18 +1,16 @@
 const moment = require('moment-timezone');
-const V1Router = require('@/v1/routes');
 const parser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
+const V1Router = require('@/v1/routes');
 
 const app = express();
 
 const logStream = fs.createWriteStream(
   path.join(__dirname, '../logs/api.zaxe.log'),
-  {
-    flags: 'a',
-  }
+  { flags: 'a' }
 );
 const DateFormat = moment()
   .tz('Europe/Istanbul')

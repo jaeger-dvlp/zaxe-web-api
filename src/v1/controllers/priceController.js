@@ -1,6 +1,4 @@
 const PriceService = require('@/v1/services/priceService');
-const path = require('path');
-const fs = require('fs');
 
 const getAllPrices = async (req, res) => {
   try {
