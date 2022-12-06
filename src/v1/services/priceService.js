@@ -21,7 +21,7 @@ const getAllPrices = () => {
   }
 };
 
-const getPriceBySlug = (slug) => {
+const getPricesBySlug = (slug) => {
   try {
     const prices = getPriceJSON();
     const price = prices.find((product) => product.slug === slug);
@@ -36,7 +36,24 @@ const getPriceBySlug = (slug) => {
   }
 };
 
+const getPricesByCategory = (slug) => {
+  try {
+    const prices = getPriceJSON();
+    const price = prices.filter((product) => product.category === slug);
+    if (!price || price.length === 0)
+      throw {
+        status: 404,
+        message: 'Bzzt! Bzzt! Products or category not found.',
+      };
+
+    return price;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   getAllPrices,
-  getPriceBySlug,
+  getPricesBySlug,
+  getPricesByCategory,
 };
