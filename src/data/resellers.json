@@ -1,0 +1,191 @@
+[
+  {
+    "countries": ["🇹🇷 Turkey"],
+    "name": "Zaxe 3D",
+    "image": "https://cdn.zaxe.com/src/resellers/xLogoBlack.webp",
+    "address": "Yeşilce Mahallesi, Seçilmiş Sokak\nNo:2, 34418\nKâğıthane/İstanbul",
+    "phoneNumber": "+90 (212) 279 00 60",
+    "URL": "https://zaxe.com/",
+    "location": { "lat": 41.09619623527818, "lng": 29.00316726920729 }
+  },
+  {
+    "countries": ["🇹🇷 Turkey"],
+    "name": "Arena Bilgisayar",
+    "image": "https://cdn.zaxe.com/src/resellers/ArenaBilgisayar.webp",
+    "address": "Merkez Mahallesi, Göktürk Caddesi\nNo:4, 34077\nGöktürk/Eyüp/İstanbul",
+    "phoneNumber": "+90 (212) 364 64 64",
+    "URL": "https://www.arena.com.tr",
+    "location": { "lat": 41.17713263896867, "lng": 28.889831311098717 }
+  },
+  {
+    "countries": ["🇩🇪 Germany"],
+    "name": "OKM 3D",
+    "image": "https://cdn.zaxe.com/src/resellers/OKM3D.webp",
+    "address": "Timesstraße 1, 95511\nMistelbach/Germany",
+    "phoneNumber": "+49 9201 69 098 00",
+    "URL": "https://www.3d-drucker-experte.de/en/3d-printers/zaxe/",
+    "location": { "lat": 49.91481484465492, "lng": 11.520519043430502 }
+  },
+  {
+    "countries": ["🇩🇪 Germany"],
+    "name": "3D-Printmaster",
+    "image": "https://cdn.zaxe.com/src/resellers/_3D-PrintMaster.webp",
+    "address": "3D-Technologie Hörth GmbH\nSchwarzwaldstraße 51\n77815\nBühl/Germany",
+    "phoneNumber": "+49 7223 91 925 10",
+    "URL": "https://3d-printmaster.de/zaxe-z3",
+    "location": { "lat": 48.65899136821689, "lng": 8.148695915342655 }
+  },
+  {
+    "countries": ["🇩🇪 Germany"],
+    "name": "3Dmensional",
+    "image": "https://cdn.zaxe.com/src/resellers/_3Dmensional.webp",
+    "address": "Ottostraße 12\n50859\nKöln/Germany",
+    "phoneNumber": "+49 2234 27 660 11",
+    "URL": "https://www.3dmensionals.de/zaxe-z3-3d-drucker",
+    "location": { "lat": 50.94938878162087, "lng": 6.840822010100496 }
+  },
+  {
+    "countries": ["🇮🇱 Israel"],
+    "name": "Filamentech",
+    "image": "https://cdn.zaxe.com/src/resellers/Filamentech.webp",
+    "address": "Ha-Pninim St.10\nAshkelon/Israel",
+    "phoneNumber": "+972 51-220-8288",
+    "URL": "https://filamentech.co.il",
+    "location": { "lat": 31.661811243721093, "lng": 34.597532188792805 }
+  },
+  {
+    "countries": ["🇳🇱 Netherlands", "🇧🇪 Belgium", "🇱🇺 Luxembourg"],
+    "name": "123-3D",
+    "image": "https://cdn.zaxe.com/src/resellers/_123-3D.webp",
+    "address": "Koningsbeltweg 52\n1329 AK Almere\nNetherlands",
+    "phoneNumber": "+31 294 787 127",
+    "URL": "https://www.123-3d.nl",
+    "location": { "lat": 52.370699002591834, "lng": 5.2760487230103434 }
+  },
+  {
+    "countries": ["🇬🇧 United Kingdom "],
+    "name": "3B3D Printing Solutions",
+    "image": "https://cdn.zaxe.com/src/resellers/_3B3D.webp",
+    "address": "Catheralls Industrial Estate, Brookhill Way\nBuckley CH7 3PS\nUnited Kingdom",
+    "phoneNumber": "07493 310269",
+    "URL": "https://www.3b3d.co.uk",
+    "location": { "lat": 53.191675971907266, "lng": -2.8779066312489143 }
+  },
+  {
+    "countries": ["🇫🇷 France"],
+    "name": "3D Advance",
+    "image": "https://cdn.zaxe.com/src/resellers/_3DAdvance.webp",
+    "address": "140 Rue Édouard Michelin,\n54710\nFléville-devant-Nancy / France",
+    "phoneNumber": "+33 3 83 61 44 93",
+    "URL": "https://boutique.3dadvance.fr",
+    "location": { "lat": 48.617571182336384, "lng": 6.1990272460290985 }
+  },
+  {
+    "countries": ["🇫🇷 France"],
+    "name": "Penta Print 3D",
+    "image": "https://cdn.zaxe.com/src/resellers/PentaPrint3D.webp",
+    "address": "7 rue du docteur Bianchi\n44150 Vair-sur-Loire\nFrance",
+    "phoneNumber": "+33 (0)2 40 98 77 24",
+    "URL": "https://pentaprint3d.fr",
+    "location": { "lat": 47.41194991648103, "lng": -1.0975891693139346 }
+  },
+  {
+    "countries": ["🇫🇷 France"],
+    "name": "Cubeek 3D",
+    "image": "https://cdn.zaxe.com/src/resellers/Cubeek3D.webp",
+    "address": "20 Rue du Maréchal de Lattre de Tassigny\n78990 Élancourt\nFrance",
+    "phoneNumber": "+33 1 39 30 66 76",
+    "URL": "https://pentaprint3d.fr",
+    "location": { "lat": 48.79780996315166, "lng": 1.9768859714321028 }
+  },
+  {
+    "countries": ["🇳🇴 Norway"],
+    "name": "Stratum 3D",
+    "image": "https://cdn.zaxe.com/src/resellers/Stratum3D.webp",
+    "address": "Gråtrostvegen 2g 2032\nMaura/Norway",
+    "phoneNumber": "+47 484 82 476",
+    "URL": "https://stratum3d.no/3d-printer/#Zaxeanchor",
+    "location": { "lat": 60.256699831754176, "lng": 11.029116638056259 }
+  },
+  {
+    "countries": ["🇮🇹 Italy"],
+    "name": "Ciano Shapes",
+    "image": "https://cdn.zaxe.com/src/resellers/CianoShapes.webp",
+    "address": "Via Carlo Bo\n7 20143 Milano MI\nItaly",
+    "phoneNumber": "351 5352080",
+    "URL": "https://cianoshapes.com/zaxe/",
+    "location": { "lat": 45.44175749235292, "lng": 9.164035609963804 }
+  },
+  {
+    "countries": ["🇨🇿 Czechia", "🇸🇰 Slovakia"],
+    "name": "3D Manufaktura",
+    "image": "https://cdn.zaxe.com/src/resellers/_3DManufaktura.webp",
+    "address": "Kafkova 72\n509 01\nNová Paka/Czechia",
+    "phoneNumber": "+420 777 042 911",
+    "URL": "https://eshop.3dmanufaktura.cz/znacka/zaxe/",
+    "location": { "lat": 50.495917152049216, "lng": 15.514024168548925 }
+  },
+  {
+    "countries": ["🇷🇴 Romania"],
+    "name": "HTW Lasercut & 3D Printing",
+    "image": "https://cdn.zaxe.com/src/resellers/_3Dinbox.webp",
+    "address": "incinta Logistic Park\nȘoseaua Industrială 6\nConstanța 900131",
+    "phoneNumber": "+40 733 476 640",
+    "URL": "http://3dinbox.ro",
+    "location": { "lat": 44.16187610681584, "lng": 28.59728950000137 }
+  },
+  {
+    "countries": ["🇸🇮 Slovenia"],
+    "name": "3D-Tisk",
+    "image": "https://cdn.zaxe.com/src/resellers/_3D-Tisk.webp",
+    "address": "Beograjska ulica 4\n 1000 Ljubljana\n Slovenia",
+    "phoneNumber": "+386 1 320 08 99",
+    "URL": "https://www.3d-tisk.si/zaxe/",
+    "location": { "lat": 46.06251312569107, "lng": 14.541386302008776 }
+  },
+  {
+    "countries": ["🇩🇰 Denmark"],
+    "name": "3D Eksperten",
+    "image": "https://cdn.zaxe.com/src/resellers/_3DEksperten.webp",
+    "address": "Amalienborgvej 57\n9400 Nørresundby\nDenmark",
+    "phoneNumber": "+45 29870966",
+    "URL": "https://3deksperten.dk/collections/zaxe-3d-printer",
+    "location": { "lat": 57.08042847449327, "lng": 9.957173918012593 }
+  },
+  {
+    "countries": ["🇺🇦 Ukraine"],
+    "name": "Ukraine",
+    "image": "https://cdn.zaxe.com/src/resellers/xLogoBlack.webp",
+    "address": null,
+    "phoneNumber": null,
+    "URL": null,
+    "location": { "lat": 48.3794, "lng": 31.1656 }
+  },
+  {
+    "countries": ["🇵🇱 Poland"],
+    "name": "Poland",
+    "image": "https://cdn.zaxe.com/src/resellers/xLogoBlack.webp",
+    "address": null,
+    "phoneNumber": null,
+    "URL": null,
+    "location": { "lat": 52.2297, "lng": 21.0122 }
+  },
+  {
+    "countries": ["🇭🇺 Hungary"],
+    "name": "Hungary",
+    "image": "https://cdn.zaxe.com/src/resellers/xLogoBlack.webp",
+    "address": null,
+    "phoneNumber": null,
+    "URL": null,
+    "location": { "lat": 47.1625, "lng": 19.5033 }
+  },
+  {
+    "countries": ["🇦🇹 Austria"],
+    "name": "Austria",
+    "image": "https://cdn.zaxe.com/src/resellers/xLogoBlack.webp",
+    "address": null,
+    "phoneNumber": null,
+    "URL": null,
+    "location": { "lat": 47.5162, "lng": 14.5501 }
+  }
+]
