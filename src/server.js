@@ -1,15 +1,9 @@
-const express = require('express');
-const morgan = require('morgan');
-const parser = require('body-parser');
+require('module-alias/register');
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const app = require('@/src/app');
 
-app.use(parser.json());
-app.use(morgan('tiny'));
+const PORT = process.env.PORT || 3005;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.listen(PORT, () => {
+  console.log(`[ zaxe-api ] Server is listening on port ${PORT}!`);
 });
-
-app.listen(PORT, () => {});
