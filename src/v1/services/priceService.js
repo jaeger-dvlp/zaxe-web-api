@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const CodeError = require('../../utils/CodeError');
 
 const getPriceJSON = () =>
   JSON.parse(
@@ -13,43 +14,25 @@ const getPriceJSON = () =>
   );
 
 const getAllPrices = () => {
-  try {
-    const prices = getPriceJSON();
-    return prices;
-  } catch (error) {
-    throw error;
-  }
+  const prices = getPriceJSON();
+  return prices;
 };
 
 const getPricesBySlug = (slug) => {
-  try {
-    const prices = getPriceJSON();
-    const price = prices.find((product) => product.slug === slug);
-    if (!price)
-      throw {
-        status: 404,
-        message: 'Bzzt! Bzzt! Product not found.',
-      };
-    return price;
-  } catch (error) {
-    throw error;
-  }
+  const prices = getPriceJSON();
+  const price = prices.find((product) => product.slug === slug);
+  if (!price) throw new CodeError(404, 'Bzzt! Bzzt! Product not found.');
+
+  return price;
 };
 
 const getPricesByCategory = (slug) => {
-  try {
-    const prices = getPriceJSON();
-    const price = prices.filter((product) => product.category === slug);
-    if (!price || price.length === 0)
-      throw {
-        status: 404,
-        message: 'Bzzt! Bzzt! Products or category not found.',
-      };
+  const prices = getPriceJSON();
+  const price = prices.filter((product) => product.category === slug);
+  if (!price || price.length === 0)
+    throw new CodeError(404, 'Bzzt! Bzzt! Category not found.');
 
-    return price;
-  } catch (error) {
-    throw error;
-  }
+  return price;
 };
 
 module.exports = {
