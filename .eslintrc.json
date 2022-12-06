@@ -3,13 +3,17 @@
   "env": {
     "node": true,
     "es2021": true,
-    "commonjs": true
+    "commonjs": true,
+    "browser": false
   },
   "extends": ["airbnb-base", "eslint:recommended", "prettier"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "plugins": ["node"],
-  "rules": {}
+  "plugins": [],
+  "rules": {
+    "import/extensions": "off",
+    "import/no-unresolved": "off"
+  }
 }
