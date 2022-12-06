@@ -21,6 +21,22 @@ const getAllPrices = () => {
   }
 };
 
+const getPriceBySlug = (slug) => {
+  try {
+    const prices = getPriceJSON();
+    const price = prices.find((product) => product.slug === slug);
+    if (!price)
+      throw {
+        status: 404,
+        message: 'Bzzt! Bzzt! Product not found.',
+      };
+    return price;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   getAllPrices,
+  getPriceBySlug,
 };
