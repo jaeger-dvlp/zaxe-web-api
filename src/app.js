@@ -2,36 +2,33 @@ const moment = require('moment-timezone');
 const parser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path');
-const fs = require('fs');
+
 const V1Router = require('@/v1/routes');
+const CreateLogStream = require('@/src/utils/LogStream');
 
-const app = express();
-
-const logStream = fs.createWriteStream(
-  path.join(__dirname, '../logs/api.zaxe.log'),
-  { flags: 'a' }
-);
+const LogStream = CreateLogStream();
 const DateFormat = moment()
   .tz('Europe/Istanbul')
   .format('YYYY/MM/DD hh:mm:ss a');
 
+const app = express();
+
 morgan.token('date', () => DateFormat);
 morgan.format('zaxe', '[ zaxe-api ] [ :date ] :url :status');
 
+app.use(parser.json());
 app.use(
   morgan('zaxe', {
-    stream: logStream,
+    stream: LogStream,
   })
 );
-app.use(parser.json());
 app.use(morgan('zaxe'));
 app.use('/v1', V1Router);
-app.use('*', (req, res) => {
+app.use('*', (req, res) =>
   res.status(404).send({
     status: 'error',
-    message: 'Bzzt! Bzzt! Endpoint not found.',
-  });
-});
+    message: 'Bzzt! Bzzt! Endpoint not found!',
+  })
+);
 
 module.exports = app;
