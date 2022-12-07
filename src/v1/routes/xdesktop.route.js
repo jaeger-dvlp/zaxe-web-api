@@ -8,4 +8,9 @@ router.get(
   XDesktopController.getXDesktopFirmwareNotes
 );
 
+router.get(
+  '/xdesktop/firmware-notes/:version',
+  XDesktopController.getXDesktopFirmwareNoteOneVersion
+);
+
 module.exports = router;
