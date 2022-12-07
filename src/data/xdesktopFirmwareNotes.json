@@ -1,0 +1,339 @@
+[
+  {
+    "ver": "2.3.12",
+    "updates": [
+      {
+        "tr": "Dilimleme motoru güncellendi.\nBazı konfigurasyonlarda dilimlerken takılıyor hatası giderildi.",
+        "en": "Updated slicing engine.\nFixed the bug which causes engine to hang with some configurations."
+      }
+    ]
+  },
+  {
+    "ver": "2.3.11",
+    "updates": [
+      {
+        "tr": "Dilimleme motoru güncellendi.\nHatalar giderildi ve iyileştirmeler yapıldı.",
+        "en": "The slicing engine has been updated.\nBugs fixed and improvements made."
+      }
+    ]
+  },
+  {
+    "ver": "2.3.10",
+    "updates": [
+      {
+        "tr": "Taban destek mesafesi ayarlanamıyor hatası çözüldü.",
+        "en": "The base support distance cannot be adjusted error has been resolved."
+      },
+      {
+        "tr": "İyileştirmeler yapıldı.",
+        "en": "Improvements have been made."
+      },
+      {
+        "tr": "X2 için 0.6mm ve 0.8mm nozül seçenekleri eklendi",
+        "en": "Added 0.6mm and 0.8mm nozzle options for X2."
+      }
+    ]
+  },
+  {
+    "ver": "2.3.9",
+    "updates": [
+      {
+        "tr": "Fan hızı yanlış geliyor hatası düzeltildi.",
+        "en": "Fixed the error that the fan speed is wrong."
+      },
+      {
+        "tr": "Z3 için Z sıçraması varsayılan olmaktan çıkartıldı",
+        "en": "Z jump is no longer default for Z3"
+      },
+      {
+        "tr": "ABS materyalde yatak sıcaklığı gelmiyor hatası düzeltildi.",
+        "en": "The error that the bed temperature does not come from ABS material has been fixed."
+      }
+    ]
+  },
+  {
+    "ver": "2.3.8",
+    "updates": [
+      {
+        "tr": "Dilimleme motoru güncellendi.",
+        "en": "The slicing engine has been updated."
+      }
+    ]
+  },
+  {
+    "ver": "2.2.5",
+    "updates": [
+      {
+        "tr": "Konfigurasyon iyileştirmeleri yapıldı.",
+        "en": "Configuration improvements have been made."
+      }
+    ]
+  },
+  {
+    "ver": "2.2.4",
+    "updates": [
+      {
+        "tr": "Monotonik alt/üst katman ve Belirsiz dış katman ayarları eklendi.",
+        "en": "Added Monotonic under/over layer and Indeterminate outer layer settings."
+      },
+      {
+        "tr": "Konfigurasyon iyileştirmeleri yapıldı.",
+        "en": "Configuration improvements have been made."
+      }
+    ]
+  },
+  {
+    "ver": "2.2.0",
+    "updates": [
+      {
+        "tr": "xlite+, X3 ve Z3 serisi eklendi. xlite+ seçmek için xlite seçip sağ tıklayıp xlite+ 0.4 nozülünü seçebilirsiniz.",
+        "en": "Added xlite+, X3 and Z3 series. To select xlite+ you can select xlite and right click and select xlite+ 0.4 nozzle."
+      },
+      {
+        "tr": "Düz şekilde yerleştirmek için yüz seçiniz kısayolu CTRL+F atandı.",
+        "en": "Select face shortcut CTRL+F is assigned to place it straight."
+      },
+      {
+        "tr": "Özel materyal ayarlarına ilk katman hızı eklendi.",
+        "en": "Added first layer speed to custom material settings."
+      },
+      {
+        "tr": "Mac M1 bozuk karakterler hatası düzeltildi.",
+        "en": "Fixed Mac M1 garbled characters error."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.8",
+    "updates": [
+      {
+        "tr": "BASF marka Zaxe uyumlu filamentler eklendi.",
+        "en": "BASF brand Zaxe compatible filaments added."
+      },
+      {
+        "tr": "Uyarlanabilir katman kullan özelliği eklendi.",
+        "en": "Added the Use adaptive layer feature."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.7",
+    "updates": [
+      {
+        "tr": "Gelişmiş destek ayarları eklendi.",
+        "en": "Added advanced support settings."
+      },
+      {
+        "tr": "Dilimleme ekranı destek çubuğunun altına gelişmiş ayarlar tuşu eklendi.",
+        "en": "Added advanced settings button under slicing screen support bar."
+      },
+      {
+        "tr": "Eklenen ayarlar: Destek yerleşimi, deseni, duvar sayısı, yoğunluğu, ilk katman destek kontakt mesafesi, çizgi mesafesi, tavan ve taban mesafesi, kenarı çatısı ve tabanı seçenekleri eklendi.",
+        "en": "Added settings: Support placement, pattern, number of walls, density, first layer support contact distance, line distance, ceiling and floor distance, edge roof and base options have been added."
+      },
+      {
+        "tr": "Yeni detaylı özel materyal ayarları ve profilleri eklendi.",
+        "en": "Added new detailed custom material settings and profiles."
+      },
+      {
+        "tr": "5 adet ismi değiştirilebilen profil eklendi örn: Karbon diye adlandırdığınız filament için baskı ayarlarını girilebilir hale geldi.",
+        "en": "Added 5 renameable profiles, eg: Print settings can be entered for the filament you named carbon."
+      },
+      {
+        "tr": "Eklenen başlıklar Ekstrüzyon kalınlığı, destek, hız ve diğer ayarlar. Bu başlıklar altında çok sayıda ayar eklendi.",
+        "en": "Added headers Extrusion thickness, support, speed and other settings. Many settings have been added under these headings."
+      },
+      {
+        "tr": "Flex materyal optimizasyonlari yapıldı.",
+        "en": "Flex material optimizations were made."
+      },
+      {
+        "tr": "Z1 ve Z1+ cihazları için Flex baskı odaklı donanım değişikliğini teknik servisimize iletişime geçerek siz de yaptırabilirsiniz!",
+        "en": "For Z1 and Z1+ devices, you can make Flex print-oriented hardware changes by contacting our technical service!"
+      },
+      {
+        "tr": "Z1 serisi ile Flex baskı hızları düşürüldü, baskı kalitesi arttırıldı.",
+        "en": "With the Z1 series, Flex print speeds have been reduced and print quality has been increased."
+      },
+      {
+        "tr": "Z1 serisi için Flex malzeme optimizasyonu yapıldı.",
+        "en": "Flex material optimization was made for the Z1 series."
+      },
+      {
+        "tr": "Z1+ için Flex ile ilk katmanda kafa tıkama sorunu çözüldü.",
+        "en": "For Z1+, the first layer head gag issue with Flex has been resolved."
+      },
+      {
+        "tr": "Bütün yazıcılarda taban ve tavan deseni modelin sağlamlığını arttıracak şekilde değişken birbirine dik hale getirildi.",
+        "en": "In all printers, the floor and ceiling pattern has been made perpendicular to each other to increase the robustness of the model."
+      },
+      {
+        "tr": "xlite için dilimi dışa aktarırken artık filament tipi dosya isminin başına eklenmeye başlandı.",
+        "en": "When exporting the slice for xlite, the filament type is now appended to the beginning of the filename."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.5",
+    "updates": [
+      {
+        "tr": "OSX Big Sur ile uyumlu hale getirildi.",
+        "en": "Made compatible with OSX Big Sur."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.4",
+    "updates": [
+      {
+        "tr": "xlite konfigurasyonları iyileştirildi.",
+        "en": "xlite configurations have been improved."
+      },
+      {
+        "tr": "Dikiş yeri seçeneği eklendi.",
+        "en": "Added seam location option."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.3",
+    "updates": [
+      {
+        "tr": "xlite serisi eklendi.",
+        "en": "xlite series added."
+      },
+      {
+        "tr": "gcode uzantılı dosyaları deskteklenmeye başlandı.",
+        "en": "gcode extension files started to be supported."
+      },
+      {
+        "tr": "Özel destek ekleme özelliği eklendi.",
+        "en": "Added custom support feature."
+      },
+      {
+        "tr": "Dosya ismi düzenlenebilir hale geldi. (Kaydetmeden önce dosya ismine tıklamanız yeterli)",
+        "en": "The file name has become editable. (Just click on file name before saving)"
+      },
+      {
+        "tr": "Model yüzüne göre düz şekilde yerleştirme eklendi.",
+        "en": "Added flat placement according to model face."
+      },
+      {
+        "tr": "Model tamir et eklentisi eklendi.",
+        "en": "Added repair model plugin."
+      },
+      {
+        "tr": "Dilimleme motoru güncellendi.",
+        "en": "The slicing engine has been updated."
+      },
+      {
+        "tr": "Yeni dilimleme motoru parametreleri eklendi.",
+        "en": "Added new slicing engine parameters."
+      }
+    ]
+  },
+  {
+    "ver": "2.1.1",
+    "updates": [
+      {
+        "tr": "Yeni nozül konfigürasyonları eklendi.\nZ1 serisi için 0.2 ve 0.8. X2 için Tüm metal 0.15 ve 0.25.",
+        "en": "Added new nozzle configurations.\n0.2 and 0.8 for Z1 series. All metal 0.15 and 0.25 for X2."
+      },
+      {
+        "tr": "Cihazdan canlı yayın özelliği eklendi.\nSadece Z serisi için firmware v2.4.95+",
+        "en": "Added live broadcast feature from device.\nFirmware v2.4.95+ for Z series only."
+      },
+      {
+        "tr": "Türkçe karakter desteği eklendi.",
+        "en": "Added Turkish character support."
+      },
+      {
+        "tr": "Dikiş izini modelini arka tarafına at seçeneği eklendi.",
+        "en": "Added the Throw seam pattern to the back option."
+      },
+      {
+        "tr": "150 μm katman kalınlığı eklendi.",
+        "en": "A layer thickness of 150 μm was added."
+      },
+      {
+        "tr": "0.15mm katman kalınlığı önerilen olarak kullanılmaya başlandı.",
+        "en": "A layer thickness of 0.15mm is used as recommended."
+      },
+      {
+        "tr": "X2 serisi eklendi.\nTüm metal nozül eklendi.",
+        "en": "Added X2 series.\nAdded all metal nozzle."
+      },
+      {
+        "tr": "Filament çıkart tuşu eklendi.\nSadece Z serisi için firmware v2.4.76+",
+        "en": "Added filament eject button.\nFirmware v2.4.76+ for Z series only."
+      },
+      {
+        "tr": "Modelleme Araçları eklendi.\nModeli parçalara ayırma özelliği kontekst menüsüne eklendi.",
+        "en": "Added Modeling Tools.\nAdded feature to split model into context menu."
+      },
+      {
+        "tr": "Zaxe ZLite eklendi.\nÇift kafa optimizasyonları yapıldı.",
+        "en": "Added Zaxe ZLite.\nDouble head optimizations has been made."
+      },
+      {
+        "tr": "Destek açısı optimize edildi.",
+        "en": "The support angle has been optimized."
+      },
+      {
+        "tr": "Güncelleme süreci optimize edildi.\nİndir tuşuna basılınca programdan çıkış sağlandı.",
+        "en": "The update process has been optimized.\nClicking the Download button exits the program."
+      }
+    ]
+  },
+  {
+    "ver": "2.0.4",
+    "updates": [
+      {
+        "tr": "Dilimleme optimizasyonları;\nYeni 'Daha detaylı dilimleme' seçeneği eklendi. Bu seçenek seçildiğinde modelinizin tüm detaylarını dilimleyebileceksiniz.\nKonfigurasyonlar optimize edildi.",
+        "en": "Slicing optimizations;\nAdded new 'More detailed slicing' option. When this option is selected, you will be able to slice all the details of your model.\nConfigurations have been optimized."
+      },
+      {
+        "tr": "Z1 serisi tabla boyutları güncellendi.",
+        "en": "Z1 series table dimensions have been updated."
+      }
+    ]
+  },
+  {
+    "ver": "2.0.2",
+    "updates": [
+      {
+        "tr": "Dilimleme optimizasyonları yapıldı.",
+        "en": "Slicing optimizations were made."
+      },
+      {
+        "tr": "Konfigurasyonlar optimize edildi.",
+        "en": "Configurations have been optimized."
+      },
+      {
+        "tr": "Böcekler temizlendi.",
+        "en": "Bugs have been cleared."
+      }
+    ]
+  },
+  {
+    "ver": "2.0.1",
+    "updates": [
+      {
+        "tr": "Dilimleme optimizasyonları yapıldı.",
+        "en": "Slicing optimizations were made."
+      },
+      {
+        "tr": "Yeni doldurma seçenekleri eklendi.",
+        "en": "Added new fill options."
+      },
+      {
+        "tr": "Dişi-erkek parça çiftlerinde varsayılan geçme toleransları iyileştirildi.",
+        "en": "Improved default fit tolerances on female-male part pairs."
+      },
+      {
+        "tr": "Dikiş izleri iyileştirildi.",
+        "en": "Stitch marks have been improved."
+      }
+    ]
+  }
+]
