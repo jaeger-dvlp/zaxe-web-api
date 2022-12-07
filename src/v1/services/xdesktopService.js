@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const CodeError = require('@/src/classes/CodeError');
+const ResponseError = require('@/src/utils/ResponseError');
 
 const getFirmwareJSON = () =>
   JSON.parse(
@@ -25,7 +25,10 @@ const getXDesktopFirmwareNoteOneVersion = async (version) => {
   const firmwareNote = firmwareNotes.find(({ ver }) => ver === version) || null;
 
   if (!firmwareNote)
-    throw new CodeError(404, 'Bzzt! Bzzt! No notes found for given version.');
+    throw new ResponseError(
+      404,
+      'Bzzt! Bzzt! No notes found for given version.'
+    );
 
   return firmwareNote;
 };

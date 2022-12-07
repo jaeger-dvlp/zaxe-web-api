@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const CodeError = require('@/src/classes/CodeError');
+const ResponseError = require('@/src/utils/ResponseError');
 
 const getPriceJSON = () =>
   JSON.parse(
@@ -21,7 +21,7 @@ const getAllPrices = () => {
 const getPricesBySlug = (slug) => {
   const prices = getPriceJSON();
   const price = prices.find((product) => product.slug === slug);
-  if (!price) throw new CodeError(404, 'Bzzt! Bzzt! Product not found.');
+  if (!price) throw new ResponseError(404, 'Bzzt! Bzzt! Product not found.');
 
   return price;
 };
@@ -30,7 +30,7 @@ const getPricesByCategory = (slug) => {
   const prices = getPriceJSON();
   const price = prices.filter((product) => product.category === slug);
   if (!price || price.length === 0)
-    throw new CodeError(404, 'Bzzt! Bzzt! Category not found.');
+    throw new ResponseError(404, 'Bzzt! Bzzt! Category not found.');
 
   return price;
 };
