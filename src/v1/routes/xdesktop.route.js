@@ -1,5 +1,5 @@
 const express = require('express');
-const XDesktopController = require('@/v1/controllers/xdesktopController');
+const XDesktopController = require('@/v1/controllers/xdesktop.controller');
 
 const router = express.Router();
 
