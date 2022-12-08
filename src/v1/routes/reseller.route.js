@@ -1,5 +1,5 @@
 const express = require('express');
-const ResellerController = require('@/v1/controllers/reseller.controller');
+const { ResellerController } = require('@/v1/controllers');
 
 const router = express.Router();
 
