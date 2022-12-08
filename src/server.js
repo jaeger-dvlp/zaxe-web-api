@@ -6,8 +6,10 @@ const PORT = process.env.PORT || 3005;
 
 app.listen(PORT, () => {
   console.log(
-    `${chalk.blue(
-      '[ zaxe-api ]'
-    )} Server is listening on http://localhost:${PORT}/v1/`
+    `${chalk
+      .hex('#009ade')
+      .bold(
+        '[ zaxe-api ]'
+      )} Server is listening on http://localhost:${PORT}/v1/`
   );
 });

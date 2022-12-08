@@ -15,7 +15,9 @@ SetupMorgan(app);
 SMTP.verify((err) => {
   if (err) throw err;
 
-  console.log(`${chalk.blue('[ zaxe-api ]')} SMTP Server is ready.`);
+  console.log(
+    `${chalk.hex('#009ade').bold('[ zaxe-api ]')} SMTP Server is ready.`
+  );
 });
 
 app.use(cors());
