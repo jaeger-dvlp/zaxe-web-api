@@ -7,6 +7,22 @@ const DateFormat = moment()
   .tz('Europe/Istanbul')
   .format('DD/MM/YYYY hh:mm:ss a');
 
+const getStatusColor = (status) => {
+  if (status >= 500) {
+    return 31;
+  }
+  if (status >= 400) {
+    return 33;
+  }
+  if (status >= 300) {
+    return 36;
+  }
+  if (status >= 200) {
+    return 32;
+  }
+  return 0;
+};
+
 const SetupMorgan = async (app) => {
   const LogStream = CreateLogStream();
   morgan.token('date', () => DateFormat);
@@ -19,21 +35,7 @@ const SetupMorgan = async (app) => {
       ? res.statusCode
       : undefined;
 
-    let color = null;
-
-    if (status >= 500) {
-      color = 31;
-    } else if (status >= 400) {
-      color = 33;
-    } else if (status >= 300) {
-      color = 36;
-    } else if (status >= 200) {
-      color = 32;
-    } else {
-      color = 0;
-    }
-
-    return `\x1b[${color}m${status}\x1b[0m`;
+    return `\x1b[${getStatusColor(status)}m${status}\x1b[0m`;
   });
   morgan.format('zaxe-log', `[ zaxe-api ] [ :date ] :url => :status`);
   morgan.format(
