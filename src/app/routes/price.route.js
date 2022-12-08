@@ -1,5 +1,5 @@
 const express = require('express');
-const { PriceController } = require('@/v1/controllers');
+const { PriceController } = require('@/app/controllers');
 
 const router = express.Router();
 

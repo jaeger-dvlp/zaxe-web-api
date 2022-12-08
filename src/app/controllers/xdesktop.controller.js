@@ -1,4 +1,4 @@
-const { XDesktopService } = require('@/v1/services');
+const { XDesktopService } = require('@/app/services');
 
 const getXDesktopFirmwareNotes = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-const { PriceService } = require('@/v1/services');
+const { PriceService } = require('@/app/services');
 
 const getAllPrices = async (req, res) => {
   try {
