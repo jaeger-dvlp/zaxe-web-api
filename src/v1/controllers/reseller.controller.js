@@ -1,4 +1,4 @@
-const ResellerService = require('@/v1/services/resellerService');
+const { ResellerService } = require('@/v1/services');
 
 const getAllResellers = async (req, res) => {
   try {
