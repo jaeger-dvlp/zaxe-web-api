@@ -2,7 +2,7 @@
   "name": "zaxe-web-api",
   "version": "0.0.1",
   "description": "Zaxe Web API",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "repository": "git@github.com:jaeger-dvlp/zaxe-web-api.git",
   "author": "JAEGER <omer.kayalar0101@icloud.com>",
   "license": "MIT",
@@ -34,6 +34,6 @@
   },
   "_moduleAliases": {
     "@/src": "./src",
-    "@/v1": "./src/v1"
+    "@/app": "./src/app"
   }
 }
