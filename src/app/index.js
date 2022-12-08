@@ -1,13 +1,23 @@
+require('dotenv').config();
 const cors = require('cors');
+const chalk = require('chalk');
 const helmet = require('helmet');
 const express = require('express');
 const parser = require('body-parser');
 const V1Router = require('@/app/routes');
 const SetupMorgan = require('@/src/utils/SetupMorgan');
+const SMTP = require('@/src/app/configs/config.nodemailer');
 
 const app = express();
 
 SetupMorgan(app);
+
+SMTP.verify((err) => {
+  if (err) throw err;
+
+  console.log(`${chalk.blue('[ zaxe-api ]')} SMTP Server is ready.`);
+});
+
 app.use(cors());
 app.use(helmet());
 app.use(parser.json());
