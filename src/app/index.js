@@ -11,7 +11,7 @@ SetupMorgan(app);
 app.use(cors());
 app.use(helmet());
 app.use(parser.json());
-app.use('/app', V1Router);
+app.use('/v1', V1Router);
 app.use('*', (req, res) =>
   res.status(404).send({
     status: 'error',
