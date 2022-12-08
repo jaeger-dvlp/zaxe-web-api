@@ -10,7 +10,7 @@ const DateFormat = moment()
 const SetupMorgan = async (app) => {
   const LogStream = CreateLogStream();
   morgan.token('date', () => DateFormat);
-  morgan.token('status', (req, res) => {
+  morgan.token('live-status', (req, res) => {
     const status = (
       typeof res.headersSent !== 'boolean'
         ? Boolean(res.header)
@@ -38,7 +38,9 @@ const SetupMorgan = async (app) => {
   morgan.format('zaxe-log', `[ zaxe-api ] [ :date ] :url => :status`);
   morgan.format(
     'zaxe-live',
-    `${chalk.hex('#009ade').bold('[ zaxe-api ]')} [ :date ] :url => :status`
+    `${chalk
+      .hex('#009ade')
+      .bold('[ zaxe-api ]')} [ :date ] :url => :live-status`
   );
 
   app.use(morgan('zaxe-live'));
