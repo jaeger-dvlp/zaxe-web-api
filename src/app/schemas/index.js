@@ -1,14 +1,18 @@
 const {
-  ContactSchema,
-  TalktosalesSchema,
-  RequestsampleSchema,
+  main: { ContactSchema, TalktosalesSchema, RequestsampleSchema },
+  knowledgeBase: { PositiveFeedbackSchema },
 } = require('./form.schema');
 
 const { MailSchemas } = require('./mail.schema');
 
 module.exports = {
   MailSchemas,
-  ContactSchema,
-  TalktosalesSchema,
-  RequestsampleSchema,
+  main: {
+    ContactSchema,
+    TalktosalesSchema,
+    RequestsampleSchema,
+  },
+  knowledgeBase: {
+    PositiveFeedbackSchema,
+  },
 };
