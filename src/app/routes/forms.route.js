@@ -6,7 +6,7 @@ const { FormsController } = require('@/app/controllers');
 
 // * Schemas
 const { ContactSchema } = require('@/app/schemas');
-const { TalktosalesSchema } = require('../schemas/form.schema');
+const { TalktosalesSchema } = require('@/app/schemas/form.schema');
 
 const router = express.Router();
 
