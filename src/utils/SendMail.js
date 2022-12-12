@@ -56,6 +56,7 @@ const getAttachments = async (MailSchema, data) => {
     const attachment = {
       filename: name,
       content: buffer,
+      encoding: type,
     };
     return [attachment];
   }
