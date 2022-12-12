@@ -22,7 +22,7 @@ SMTP.verify((err) => {
 
 app.use(cors());
 app.use(helmet());
-app.use(parser.json());
+app.use(parser.json({ limit: '50mb', extended: true }));
 app.use('/v1', V1Router);
 app.use('*', (req, res) =>
   res.status(404).send({
