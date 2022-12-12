@@ -186,4 +186,45 @@ const RequestsampleSchema = checkSchema({
   },
 });
 
-module.exports = { ContactSchema, TalktosalesSchema, RequestsampleSchema };
+const PositiveFeedbackSchema = checkSchema({
+  article: {
+    in: ['body'],
+    isObject: true,
+    errorMessage: 'Article is required.',
+  },
+  'article.title': {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+    errorMessage: 'Article title is required.',
+  },
+  'article.url': {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+    errorMessage: 'Article url is required.',
+  },
+  'article.language': {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+    errorMessage: 'Article language is required.',
+  },
+});
+
+module.exports = {
+  main: {
+    ContactSchema,
+    TalktosalesSchema,
+    RequestsampleSchema,
+  },
+  knowledgeBase: {
+    PositiveFeedbackSchema,
+  },
+};
