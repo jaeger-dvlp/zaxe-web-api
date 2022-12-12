@@ -13,7 +13,14 @@ const app = express();
 SetupMorgan(app);
 
 SMTP.verify((err) => {
-  if (err) throw err;
+  if (err) {
+    console.log(
+      `${chalk.red(
+        chalk.bold('[ zaxe-api ]')
+      )} An error occurred while connecting to SMTP Server.`
+    );
+    return;
+  }
 
   console.log(
     `${chalk.hex('#009ade').bold('[ zaxe-api ]')} SMTP Server is ready.`
