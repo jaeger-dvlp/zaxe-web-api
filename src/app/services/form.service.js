@@ -55,6 +55,20 @@ const NewPositiveFeedback = async (body) => {
   }
 };
 
+const NewFeedback = async (body) => {
+  try {
+    const responseUser = await SendMail('knowledgebase.fb.user', body);
+    const responseAdmin = await SendMail('knowledgebase.fb.admin', body);
+
+    if (responseUser === 'sent' && responseAdmin === 'sent') {
+      return { status: 'sent' };
+    }
+    return { status: 'error' };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
   main: {
     NewContactRequest,
@@ -63,5 +77,6 @@ module.exports = {
   },
   knowledgeBase: {
     NewPositiveFeedback,
+    NewFeedback,
   },
 };
