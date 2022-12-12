@@ -106,6 +106,32 @@ const MailSchemas = {
       'Zaxe Knowledge Base | New Positive Feedback <noreply@zaxe.com>',
     to: () => ['webdev@zaxe.com'],
   },
+  'knowledgebase.fb.user': {
+    path: 'knowledge-base/kb-feedback.mail.html',
+    subject: () => 'About Your Feedback',
+    replacement: ({ fullName }) => ({ fullName }),
+    from: () => 'Zaxe Knowledge Base | Feedback <noreply@zaxe.com>',
+    to: ({ emailAddress }) => emailAddress,
+  },
+  'knowledgebase.fb.admin': {
+    path: 'knowledge-base/admin.kb-feedback.mail.html',
+    subject: ({ fullName }) => `New Feedback By ${fullName}`,
+    replacement: ({
+      fullName,
+      emailAddress,
+      message,
+      article: { title, url, language },
+    }) => ({
+      fullName,
+      emailAddress,
+      message,
+      title,
+      url,
+      language,
+    }),
+    from: () => 'Zaxe Knowledge Base | New Feedback <noreply@zaxe.com>',
+    to: () => ['webdev@zaxe.com'],
+  },
 };
 
 module.exports = { MailSchemas };

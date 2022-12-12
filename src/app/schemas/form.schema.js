@@ -195,25 +195,63 @@ const PositiveFeedbackSchema = checkSchema({
   'article.title': {
     in: ['body'],
     isString: true,
-    isLength: {
-      options: { min: 1 },
-    },
+    isLength: { options: { min: 1 } },
     errorMessage: 'Article title is required.',
   },
   'article.url': {
     in: ['body'],
     isString: true,
-    isLength: {
-      options: { min: 1 },
-    },
+    isLength: { options: { min: 1 } },
     errorMessage: 'Article url is required.',
   },
   'article.language': {
     in: ['body'],
     isString: true,
-    isLength: {
-      options: { min: 1 },
-    },
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Article language is required.',
+  },
+});
+
+const FeedbackSchema = checkSchema({
+  fullName: {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Full name is required.',
+  },
+  emailAddress: {
+    in: ['body'],
+    isEmail: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Email address is required.',
+  },
+  message: {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Message is required.',
+  },
+  article: {
+    in: ['body'],
+    isObject: true,
+    errorMessage: 'Article is required.',
+  },
+  'article.title': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Article title is required.',
+  },
+  'article.url': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Article url is required.',
+  },
+  'article.language': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
     errorMessage: 'Article language is required.',
   },
 });
@@ -226,5 +264,6 @@ module.exports = {
   },
   knowledgeBase: {
     PositiveFeedbackSchema,
+    FeedbackSchema,
   },
 };
