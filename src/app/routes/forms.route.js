@@ -6,9 +6,8 @@ const { FormsController } = require('@/app/controllers');
 
 // * Schemas
 const {
-  ContactSchema,
-  TalktosalesSchema,
-  RequestsampleSchema,
+  main: { ContactSchema, TalktosalesSchema, RequestsampleSchema },
+  knowledgeBase: { PositiveFeedbackSchema },
 } = require('@/app/schemas');
 
 const router = express.Router();
@@ -18,19 +17,25 @@ router.use('/forms', CustomCORS, RateLimiter(5));
 router.post(
   '/forms/contact',
   [ContactSchema, Validator],
-  FormsController.NewContactRequest
+  FormsController.main.NewContactRequest
 );
 
 router.post(
   '/forms/talktosales',
   [TalktosalesSchema, Validator],
-  FormsController.NewTalkToSalesRequest
+  FormsController.main.NewTalkToSalesRequest
 );
 
 router.post(
   '/forms/requestsample',
   [RequestsampleSchema, Validator],
-  FormsController.NewRequestSampleRequest
+  FormsController.main.NewRequestSampleRequest
+);
+
+router.post(
+  '/forms/kb/feedback/positive',
+  [PositiveFeedbackSchema, Validator],
+  FormsController.knowledgeBase.NewPositiveFeedback
 );
 
 module.exports = router;
