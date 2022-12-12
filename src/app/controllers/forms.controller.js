@@ -3,7 +3,7 @@ const { FormService } = require('@/app/services/');
 const NewContactRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.NewContactRequest(body);
+    const response = await FormService.main.NewContactRequest(body);
     if (response?.status === 'sent') {
       return res.status(200).send({
         status: 'success',
@@ -25,7 +25,7 @@ const NewContactRequest = async (req, res) => {
 const NewTalkToSalesRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.NewTalkToSalesRequest(body);
+    const response = await FormService.main.NewTalkToSalesRequest(body);
     if (response?.status === 'sent') {
       return res.status(200).send({
         status: 'success',
@@ -47,7 +47,7 @@ const NewTalkToSalesRequest = async (req, res) => {
 const NewRequestSampleRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.NewRequestSampleRequest(body);
+    const response = await FormService.main.NewRequestSampleRequest(body);
 
     if (response?.status === 'sent') {
       return res.status(200).send({
@@ -67,8 +67,38 @@ const NewRequestSampleRequest = async (req, res) => {
   }
 };
 
+const NewPositiveFeedback = async (req, res) => {
+  try {
+    const { article } = req.body;
+    const response = await FormService.knowledgeBase.NewPositiveFeedback(
+      article
+    );
+
+    if (response?.status === 'sent') {
+      return res.status(200).send({
+        status: 'success',
+        message: 'Feedback has been sent successfully.',
+      });
+    }
+    return res.status(500).send({
+      status: 'error',
+      message: 'Something went wrong, please try again later.',
+    });
+  } catch (error) {
+    return res.status(error?.status || 500).send({
+      status: 'error',
+      message: error?.message || error,
+    });
+  }
+};
+
 module.exports = {
-  NewContactRequest,
-  NewTalkToSalesRequest,
-  NewRequestSampleRequest,
+  main: {
+    NewContactRequest,
+    NewTalkToSalesRequest,
+    NewRequestSampleRequest,
+  },
+  knowledgeBase: {
+    NewPositiveFeedback,
+  },
 };
