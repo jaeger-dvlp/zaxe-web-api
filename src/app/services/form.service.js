@@ -1,4 +1,4 @@
-const { SendMail } = require('../../utils/SendMail');
+const { SendMail } = require('@/src/utils/SendMail');
 
 const NewContactRequest = async (body) => {
   try {

@@ -1,4 +1,4 @@
-const FormService = require('@/app/services/form.service');
+const { FormService } = require('@/app/services/');
 
 const NewContactRequest = async (req, res) => {
   try {
