@@ -44,4 +44,31 @@ const NewTalkToSalesRequest = async (req, res) => {
   }
 };
 
-module.exports = { NewContactRequest, NewTalkToSalesRequest };
+const NewRequestSampleRequest = async (req, res) => {
+  try {
+    const { body } = req;
+    const response = await FormService.NewRequestSampleRequest(body);
+
+    if (response?.status === 'sent') {
+      return res.status(200).send({
+        status: 'success',
+        message: 'Request Sample request has been sent successfully.',
+      });
+    }
+    return res.status(500).send({
+      status: 'error',
+      message: 'Something went wrong, please try again later.',
+    });
+  } catch (error) {
+    return res.status(error?.status || 500).send({
+      status: 'error',
+      message: error?.message || error,
+    });
+  }
+};
+
+module.exports = {
+  NewContactRequest,
+  NewTalkToSalesRequest,
+  NewRequestSampleRequest,
+};
