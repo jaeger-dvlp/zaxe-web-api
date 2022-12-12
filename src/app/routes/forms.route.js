@@ -7,7 +7,7 @@ const { FormsController } = require('@/app/controllers');
 // * Schemas
 const {
   main: { ContactSchema, TalktosalesSchema, RequestsampleSchema },
-  knowledgeBase: { PositiveFeedbackSchema },
+  knowledgeBase: { PositiveFeedbackSchema, FeedbackSchema },
 } = require('@/app/schemas');
 
 const router = express.Router();
@@ -36,6 +36,12 @@ router.post(
   '/forms/kb/feedback/positive',
   [PositiveFeedbackSchema, Validator],
   FormsController.knowledgeBase.NewPositiveFeedback
+);
+
+router.post(
+  '/forms/kb/feedback/',
+  [FeedbackSchema, Validator],
+  FormsController.knowledgeBase.NewFeedback
 );
 
 module.exports = router;
