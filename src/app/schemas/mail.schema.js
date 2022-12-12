@@ -61,6 +61,43 @@ const MailSchemas = {
     from: () => 'Zaxe 3D | New Talk to Sales Request <noreply@zaxe.com>',
     to: () => ['webdev@zaxe.com'],
   },
+  'main.requestsample.user': {
+    path: 'main/request-sample.mail.html',
+    subject: () => 'About Your Request Sample Request',
+    replacement: ({ fullName }) => ({ fullName }),
+    from: () => 'Zaxe 3D | Request Sample Request <noreply@zaxe.com',
+    to: ({ emailAddress }) => emailAddress,
+  },
+  'main.requestsample.admin': {
+    path: 'main/admin.request-sample.mail.html',
+    subject: ({ fullName }) => `New Request Sample Request By ${fullName}`,
+    replacement: ({
+      fullName,
+      fullAddress,
+      emailAddress,
+      phoneNumber,
+      companyName,
+      layerHeight,
+      fillDensity,
+      city,
+      country,
+      message,
+    }) => ({
+      fullName,
+      fullAddress,
+      emailAddress,
+      phoneNumber,
+      companyName,
+      layerHeight,
+      fillDensity,
+      city,
+      country,
+      message,
+    }),
+    attachment: ({ file }) => file,
+    from: () => `Zaxe 3D | New Request Sample Request <noreply@zaxe.com>`,
+    to: () => ['webdev@zaxe.com'],
+  },
 };
 
 module.exports = { MailSchemas };
