@@ -1,7 +1,14 @@
-const { ContactSchema } = require('./form.schema');
+const {
+  ContactSchema,
+  TalktosalesSchema,
+  RequestsampleSchema,
+} = require('./form.schema');
+
 const { MailSchemas } = require('./mail.schema');
 
 module.exports = {
-  ContactSchema,
   MailSchemas,
+  ContactSchema,
+  TalktosalesSchema,
+  RequestsampleSchema,
 };

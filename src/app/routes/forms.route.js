@@ -5,9 +5,11 @@ const RateLimiter = require('@/app/middlewares/rate-limiter');
 const { FormsController } = require('@/app/controllers');
 
 // * Schemas
-const { ContactSchema } = require('@/app/schemas');
-const { TalktosalesSchema } = require('@/app/schemas/form.schema');
-const { RequestsampleSchema } = require('@/app/schemas/form.schema');
+const {
+  ContactSchema,
+  TalktosalesSchema,
+  RequestsampleSchema,
+} = require('@/app/schemas');
 
 const router = express.Router();
 
