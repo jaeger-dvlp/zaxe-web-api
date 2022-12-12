@@ -42,8 +42,26 @@ const NewRequestSampleRequest = async (body) => {
   }
 };
 
+const NewPositiveFeedback = async (body) => {
+  try {
+    const response = await SendMail('knowledgebase.fb.positive', body);
+
+    if (response === 'sent') {
+      return { status: 'sent' };
+    }
+    return { status: 'error' };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
-  NewContactRequest,
-  NewTalkToSalesRequest,
-  NewRequestSampleRequest,
+  main: {
+    NewContactRequest,
+    NewTalkToSalesRequest,
+    NewRequestSampleRequest,
+  },
+  knowledgeBase: {
+    NewPositiveFeedback,
+  },
 };
