@@ -40,6 +40,28 @@ const ReplaceTemplate = async (templateName, data) => {
   }
 };
 
+const getAttachments = async (MailSchema, data) => {
+  const getAttachment = () => {
+    if (MailSchema.attachment) {
+      return MailSchema.attachment(data);
+    }
+    return null;
+  };
+  const Attachments = getAttachment();
+
+  if (Attachments) {
+    const { value, name, type } = Attachments;
+    const ClearValue = value.split(';base64,').pop();
+    const buffer = Buffer.from(ClearValue, type);
+    const attachment = {
+      filename: name,
+      content: buffer,
+    };
+    return [attachment];
+  }
+  return null;
+};
+
 const SendMail = async (templateName, data) => {
   try {
     const MailSchema = MailSchemas[templateName] || null;
@@ -51,6 +73,7 @@ const SendMail = async (templateName, data) => {
       to: to(data),
       subject: subject(data),
       html: HTML,
+      attachments: await getAttachments(MailSchema, data),
     };
 
     return SMTP.sendMail(mailOptions)
