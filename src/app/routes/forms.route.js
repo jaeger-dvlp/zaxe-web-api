@@ -7,6 +7,7 @@ const { FormsController } = require('@/app/controllers');
 // * Schemas
 const { ContactSchema } = require('@/app/schemas');
 const { TalktosalesSchema } = require('@/app/schemas/form.schema');
+const { RequestsampleSchema } = require('../schemas/form.schema');
 
 const router = express.Router();
 
@@ -22,6 +23,12 @@ router.post(
   '/forms/talktosales',
   [TalktosalesSchema, Validator],
   FormsController.NewTalkToSalesRequest
+);
+
+router.post(
+  '/forms/requestsample',
+  [RequestsampleSchema, Validator],
+  FormsController.NewRequestSampleRequest
 );
 
 module.exports = router;
