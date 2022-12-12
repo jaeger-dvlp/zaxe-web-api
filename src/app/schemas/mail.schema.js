@@ -98,6 +98,14 @@ const MailSchemas = {
     from: () => `Zaxe 3D | New Request Sample Request <noreply@zaxe.com>`,
     to: () => ['webdev@zaxe.com'],
   },
+  'knowledgebase.fb.positive': {
+    path: 'knowledge-base/admin.kb-positive-fb.mail.html',
+    subject: () => 'New Feedback',
+    replacement: ({ title, language, url }) => ({ title, language, url }),
+    from: () =>
+      'Zaxe Knowledge Base | New Positive Feedback <noreply@zaxe.com>',
+    to: () => ['webdev@zaxe.com'],
+  },
 };
 
 module.exports = { MailSchemas };
