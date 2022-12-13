@@ -69,6 +69,20 @@ const NewFeedback = async (body) => {
   }
 };
 
+const NewApplication = async (body) => {
+  try {
+    const responseUser = await SendMail('careers.apply.user', body);
+    const responseAdmin = await SendMail('careers.apply.admin', body);
+
+    if (responseUser === 'sent' && responseAdmin === 'sent') {
+      return { status: 'sent' };
+    }
+    return { status: 'error' };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
   main: {
     NewContactRequest,
@@ -78,5 +92,8 @@ module.exports = {
   knowledgeBase: {
     NewPositiveFeedback,
     NewFeedback,
+  },
+  careers: {
+    NewApplication,
   },
 };
