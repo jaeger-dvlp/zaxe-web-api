@@ -1,13 +1,28 @@
 const { SendMail } = require('@/src/utils/SendMail');
+const { setrow } = require('../configs/setrow.config');
 const SpreadsheetService = require('./spreadsheet.service');
 
 const NewSubscriber = async (body) => {
   try {
     const { emailAddress } = body;
+    const { SETROW_API_PRIVATE_KEY, SETROW_API_WEB_GROUP_ID } = process.env;
+    const responses = {
+      H3: 'duplicate',
+      B1: 'success',
+    };
 
-    // Subscribe to setrow...
+    // ? Yep, setrow is a little bit weird. :D
+    const result = await setrow.get('/V1/api_V2.php', {
+      params: {
+        adres: emailAddress,
+        grupid: SETROW_API_WEB_GROUP_ID,
+        t: 6,
+        i: 'adres_ekle',
+        k: SETROW_API_PRIVATE_KEY,
+      },
+    });
 
-    return { status: 'success' };
+    return { status: responses[result.data['Sonuç']] || 'error' };
   } catch (error) {
     throw new Error(error);
   }
