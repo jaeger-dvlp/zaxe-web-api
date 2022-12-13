@@ -1,9 +1,9 @@
-const { FormService } = require('@/app/services/');
+const { FormsService } = require('@/app/services/');
 
 const NewContactRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.main.NewContactRequest(body);
+    const response = await FormsService.main.NewContactRequest(body);
     if (response?.status === 'sent') {
       return res.status(200).send({
         status: 'success',
@@ -25,7 +25,7 @@ const NewContactRequest = async (req, res) => {
 const NewTalkToSalesRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.main.NewTalkToSalesRequest(body);
+    const response = await FormsService.main.NewTalkToSalesRequest(body);
     if (response?.status === 'sent') {
       return res.status(200).send({
         status: 'success',
@@ -44,10 +44,10 @@ const NewTalkToSalesRequest = async (req, res) => {
   }
 };
 
-const NewRequestSampleRequest = async (req, res) => {
+const NewSampleRequest = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.main.NewRequestSampleRequest(body);
+    const response = await FormsService.main.NewSampleRequest(body);
 
     if (response?.status === 'sent') {
       return res.status(200).send({
@@ -70,7 +70,7 @@ const NewRequestSampleRequest = async (req, res) => {
 const NewPositiveFeedback = async (req, res) => {
   try {
     const { article } = req.body;
-    const response = await FormService.knowledgeBase.NewPositiveFeedback(
+    const response = await FormsService.knowledgeBase.NewPositiveFeedback(
       article
     );
 
@@ -95,7 +95,7 @@ const NewPositiveFeedback = async (req, res) => {
 const NewFeedback = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.knowledgeBase.NewFeedback(body);
+    const response = await FormsService.knowledgeBase.NewFeedback(body);
 
     if (response?.status === 'sent') {
       return res.status(200).send({
@@ -118,7 +118,7 @@ const NewFeedback = async (req, res) => {
 const NewApplication = async (req, res) => {
   try {
     const { body } = req;
-    const response = await FormService.careers.NewApplication(body);
+    const response = await FormsService.careers.NewApplication(body);
 
     if (response?.status === 'sent') {
       return res.status(200).send({
@@ -142,7 +142,7 @@ module.exports = {
   main: {
     NewContactRequest,
     NewTalkToSalesRequest,
-    NewRequestSampleRequest,
+    NewSampleRequest,
   },
   knowledgeBase: {
     NewPositiveFeedback,

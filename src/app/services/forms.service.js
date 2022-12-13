@@ -28,7 +28,7 @@ const NewTalkToSalesRequest = async (body) => {
   }
 };
 
-const NewRequestSampleRequest = async (body) => {
+const NewSampleRequest = async (body) => {
   try {
     const responseAdmin = await SendMail('main.requestsample.admin', body);
     const responseUser = await SendMail('main.requestsample.user', body);
@@ -87,7 +87,7 @@ module.exports = {
   main: {
     NewContactRequest,
     NewTalkToSalesRequest,
-    NewRequestSampleRequest,
+    NewSampleRequest,
   },
   knowledgeBase: {
     NewPositiveFeedback,

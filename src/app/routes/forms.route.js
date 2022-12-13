@@ -30,7 +30,7 @@ router.post(
 router.post(
   '/forms/requestsample',
   [RequestsampleSchema, Validator],
-  FormsController.main.NewRequestSampleRequest
+  FormsController.main.NewSampleRequest
 );
 
 router.post(
