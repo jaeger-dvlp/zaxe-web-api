@@ -1,5 +1,14 @@
 const { checkSchema } = require('express-validator');
 
+const HandleCareerSocialURL = {
+  options: (value) => {
+    if (value) {
+      return value;
+    }
+    return 'Empty or not available for this position';
+  },
+};
+
 const ContactSchema = checkSchema({
   fullName: {
     in: ['body'],
@@ -256,6 +265,199 @@ const FeedbackSchema = checkSchema({
   },
 });
 
+const ApplicationSchema = checkSchema({
+  person: {
+    in: ['body'],
+    isObject: true,
+    errorMessage: 'Person is required.',
+  },
+  'person.fullName': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Full name is required.',
+  },
+  'person.emailAddress': {
+    in: ['body'],
+    isEmail: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Email address is required.',
+  },
+  'person.phoneNumber': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Phone number is required.',
+  },
+  'person.fullAddress': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Address is required.',
+  },
+  'person.githubURL': {
+    in: ['body'],
+    isString: true,
+    optional: true,
+    customSanitizer: HandleCareerSocialURL,
+  },
+  'person.linkedinURL': {
+    in: ['body'],
+    isString: true,
+    optional: true,
+    customSanitizer: HandleCareerSocialURL,
+  },
+  'person.portfolioURL': {
+    in: ['body'],
+    isString: true,
+    optional: true,
+    customSanitizer: HandleCareerSocialURL,
+  },
+  'person.behanceURL': {
+    in: ['body'],
+    isString: true,
+    optional: true,
+    customSanitizer: HandleCareerSocialURL,
+  },
+  'person.coverLetter': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Cover letter is required.',
+  },
+  'person.legallyEligible': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Legally eligible is required.',
+  },
+  'person.eligibilityBasedOnWorkVisa': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Eligibilty based on work visa is required.',
+  },
+  'person.resume': {
+    in: ['body'],
+    isObject: true,
+    errorMessage: 'Resume is required.',
+  },
+  'person.resume.type': {
+    in: ['body'],
+    isString: true,
+    custom: {
+      options: (value) => {
+        if (value === 'base64' || value === 'drive') {
+          return true;
+        }
+
+        return false;
+      },
+    },
+    isLength: { options: { min: 1 } },
+    errorMessage: 'File type is invalid or empty.',
+  },
+  'person.resume.name': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    custom: {
+      options: (value) => {
+        if (value) {
+          const extension = value.slice(-3).toLowerCase();
+          if (extension === 'pdf') {
+            return true;
+          }
+        }
+        return Promise.reject(
+          new Error('File type is invalid or name is empty.')
+        );
+      },
+    },
+  },
+  'person.resume.value': {
+    in: ['body'],
+    isString: true,
+    custom: {
+      options: (value, { req }) => {
+        if (req.body.person.resume.type === 'base64') {
+          if (!value?.length > 0) {
+            return Promise.reject(new Error('File value is invalid or empty.'));
+          }
+        }
+
+        if (req.body.person.resume.type === 'drive') {
+          if (value?.length > 0) {
+            return Promise.reject(
+              new Error('File Value cannot be set for drive files.')
+            );
+          }
+        }
+
+        return true;
+      },
+    },
+  },
+  'person.resume.url': {
+    in: ['body'],
+    isString: true,
+    custom: {
+      options: (value, { req }) => {
+        if (req.body.person.resume.type === 'drive') {
+          if (value?.length <= 0) {
+            return Promise.reject(new Error('File URL is invalid or empty.'));
+          }
+        }
+
+        if (req.body.person.resume.type === 'base64') {
+          if (value?.length > 0) {
+            return Promise.reject(
+              new Error('File URL cannot be set for base64 files.')
+            );
+          }
+        }
+
+        return true;
+      },
+    },
+  },
+  role: {
+    in: ['body'],
+    isObject: true,
+    errorMessage: 'Role is required.',
+  },
+  'role.id': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Role id is required.',
+  },
+  'role.title': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Role title is required.',
+  },
+  'role.team': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Role team is required.',
+  },
+  'role.location': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Role location is required.',
+  },
+  'role.type': {
+    in: ['body'],
+    isString: true,
+    isLength: { options: { min: 1 } },
+    errorMessage: 'Role type is required.',
+  },
+});
+
 module.exports = {
   main: {
     ContactSchema,
@@ -265,5 +467,8 @@ module.exports = {
   knowledgeBase: {
     PositiveFeedbackSchema,
     FeedbackSchema,
+  },
+  careers: {
+    ApplicationSchema,
   },
 };

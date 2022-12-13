@@ -1,5 +1,16 @@
 // ! ToDo : Get "to" & "from" from .env variables
 
+const HandleCareerResume = ({ name, type, url }) => {
+  switch (type) {
+    case 'base64':
+      return `${name} (Attached)`;
+    case 'drive':
+      return url;
+    default:
+      return 'An error occurred while processing resume.';
+  }
+};
+
 const MailSchemas = {
   'main.contact.user': {
     path: 'main/contact.mail.html',
@@ -135,13 +146,16 @@ const MailSchemas = {
   'careers.apply.user': {
     path: 'careers/careers-apply.mail.html',
     subject: () => 'About Your Application',
-    replacement: ({ fullName }) => ({ fullName }),
+    replacement: ({ person: { fullName }, role: { title } }) => ({
+      pFullName: fullName,
+      rTitle: title,
+    }),
     from: () => 'Zaxe Careers | Application <noreply@zaxe.com>',
-    to: ({ emailAddress }) => emailAddress,
+    to: ({ person: { emailAddress } }) => emailAddress,
   },
   'careers.apply.admin': {
     path: 'careers/admin.careers-apply.mail.html',
-    subject: ({ fullName }) => `New Application By ${fullName}`,
+    subject: ({ person: { fullName } }) => `New Application By ${fullName}`,
     replacement: ({
       person: {
         fullName,
@@ -152,33 +166,34 @@ const MailSchemas = {
         behanceURL,
         portfolioURL,
         linkedinURL,
-        resumeCV: { resumeType, resumeValue, resumeURL },
+        resume: { type, name, url },
         coverLetter,
         legallyEligible,
         eligibilityBasedOnWorkVisa,
       },
-      role: { id, title, team, location, type },
+      role: { id, title, team, location, type: roleType },
     }) => ({
-      fullName,
-      phoneNumber,
-      emailAddress,
-      fullAddress,
-      githubURL,
-      behanceURL,
-      portfolioURL,
-      linkedinURL,
-      resumeType,
-      resumeValue,
-      resumeURL,
-      coverLetter,
-      legallyEligible,
-      eligibilityBasedOnWorkVisa,
-      id,
-      title,
-      team,
-      location,
-      type,
+      pFullName: fullName,
+      pPhoneNumber: phoneNumber,
+      pEmailAddress: emailAddress,
+      pFullAddress: fullAddress,
+      pGithubURL: githubURL,
+      pBehanceURL: behanceURL,
+      pPortfolioURL: portfolioURL,
+      pLinkedinURL: linkedinURL,
+      pResumeName: HandleCareerResume({ name, type, url }),
+      pCoverLetter: coverLetter,
+      pLegallyEligible: legallyEligible,
+      pEligibilityBasedOnWorkVisa: eligibilityBasedOnWorkVisa,
+      rID: id,
+      rTitle: title,
+      rTeam: team,
+      rLocation: location,
+      rType: roleType,
     }),
+    from: () => 'Zaxe Careers | New Application <noreply@zaxe.com>',
+    to: () => ['webdev@zaxe.com'],
+    attachment: async ({ person: { resume } }) => resume,
   },
 };
 
