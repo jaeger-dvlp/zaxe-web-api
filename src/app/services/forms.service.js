@@ -1,6 +1,18 @@
 const { SendMail } = require('@/src/utils/SendMail');
 const SpreadsheetService = require('./spreadsheet.service');
 
+const NewSubscriber = async (body) => {
+  try {
+    const { emailAddress } = body;
+
+    // Subscribe to setrow...
+
+    return { status: 'success' };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const NewContactRequest = async (body) => {
   try {
     const responseAdmin = await SendMail('main.contact.admin', body);
@@ -90,6 +102,7 @@ const NewApplication = async (body) => {
 
 module.exports = {
   main: {
+    NewSubscriber,
     NewContactRequest,
     NewTalkToSalesRequest,
     NewSampleRequest,
