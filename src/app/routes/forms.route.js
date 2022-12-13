@@ -8,6 +8,7 @@ const { FormsController } = require('@/app/controllers');
 const {
   main: { ContactSchema, TalktosalesSchema, RequestsampleSchema },
   knowledgeBase: { PositiveFeedbackSchema, FeedbackSchema },
+  careers: { ApplicationSchema },
 } = require('@/app/schemas');
 
 const router = express.Router();
@@ -42,6 +43,12 @@ router.post(
   '/forms/kb/feedback/',
   [FeedbackSchema, Validator],
   FormsController.knowledgeBase.NewFeedback
+);
+
+router.post(
+  '/forms/careers/apply',
+  [ApplicationSchema, Validator],
+  FormsController.careers.NewApplication
 );
 
 module.exports = router;
