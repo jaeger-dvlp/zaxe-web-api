@@ -4,9 +4,13 @@ const Validator = require('@/app/middlewares/validator');
 const RateLimiter = require('@/app/middlewares/rate-limiter');
 const { FormsController } = require('@/app/controllers');
 
-// * Schemas
 const {
-  main: { ContactSchema, TalktosalesSchema, RequestsampleSchema },
+  main: {
+    ContactSchema,
+    TalktosalesSchema,
+    RequestsampleSchema,
+    SubscribeSchema,
+  },
   knowledgeBase: { PositiveFeedbackSchema, FeedbackSchema },
   careers: { ApplicationSchema },
 } = require('@/app/schemas');
@@ -14,6 +18,12 @@ const {
 const router = express.Router();
 
 router.use('/forms', CustomCORS, RateLimiter(5));
+
+router.post(
+  '/forms/subscribe',
+  [SubscribeSchema, Validator],
+  FormsController.main.NewSubscriber
+);
 
 router.post(
   '/forms/contact',
