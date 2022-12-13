@@ -15,7 +15,7 @@ class SpreadsheetService {
       contact: process.env.SPREADSHEET_CONTACT_RANGE,
       talktosales: process.env.SPREADSHEET_TALKTOSALES_RANGE,
     };
-    this.fields = {
+    this.schemas = {
       contact: ({
         fullName,
         emailAddress,
@@ -64,7 +64,7 @@ class SpreadsheetService {
       const data = [
         '=INDIRECT("A" & ROW()-1)+1',
         new Date().toLocaleString('TR', { timeZone: 'Europe/Istanbul' }),
-        ...this.fields[this.spreadsheet](body),
+        ...this.schemas[this.spreadsheet](body),
       ];
 
       const request = {
