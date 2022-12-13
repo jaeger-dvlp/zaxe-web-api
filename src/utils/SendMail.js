@@ -1,7 +1,7 @@
 const handlebars = require('handlebars');
 const path = require('path');
 const fs = require('fs');
-const SMTP = require('@/app/configs/config.nodemailer');
+const SMTP = require('@/app/configs/nodemailer.config');
 const { MailSchemas } = require('@/app/schemas');
 
 const ReadHTMLfile = async (templateName) => {
