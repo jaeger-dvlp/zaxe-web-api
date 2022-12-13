@@ -1,4 +1,5 @@
 const { SendMail } = require('@/src/utils/SendMail');
+const SpreadsheetService = require('./spreadsheet.service');
 
 const NewContactRequest = async (body) => {
   try {
@@ -6,6 +7,8 @@ const NewContactRequest = async (body) => {
     const responseUser = await SendMail('main.contact.user', body);
 
     if (responseUser === 'sent' && responseAdmin === 'sent') {
+      const spreadsheet = new SpreadsheetService('contact');
+      spreadsheet.saveForm(body);
       return { status: 'sent' };
     }
     return { status: 'error' };
@@ -20,6 +23,8 @@ const NewTalkToSalesRequest = async (body) => {
     const responseUser = await SendMail('main.talktosales.user', body);
 
     if (responseUser === 'sent' && responseAdmin === 'sent') {
+      const spreadsheet = new SpreadsheetService('talktosales');
+      spreadsheet.saveForm(body);
       return { status: 'sent' };
     }
     return { status: 'error' };
