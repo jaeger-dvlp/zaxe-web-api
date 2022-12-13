@@ -41,18 +41,19 @@ const ReplaceTemplate = async (templateName, data) => {
 };
 
 const getAttachments = async (MailSchema, data) => {
-  const getAttachment = () => {
+  const getAttachment = async () => {
     if (MailSchema.attachment) {
-      return MailSchema.attachment(data);
+      const attachment = await MailSchema.attachment(data);
+      return attachment;
     }
     return null;
   };
-  const Attachments = getAttachment();
+  const Attachments = await getAttachment();
 
-  if (Attachments) {
+  if (Attachments && Attachments.type === 'base64') {
     const { value, name, type } = Attachments;
-    const ClearValue = value.split(';base64,').pop();
-    const buffer = Buffer.from(ClearValue, type);
+    const PlainValue = value.split(';base64,').pop();
+    const buffer = Buffer.from(PlainValue, type);
     const attachment = {
       filename: name,
       content: buffer,
@@ -68,13 +69,14 @@ const SendMail = async (templateName, data) => {
     const MailSchema = MailSchemas[templateName] || null;
     const { to, from, subject } = MailSchema;
     const HTML = await ReplaceTemplate(templateName, data);
+    const Attachments = await getAttachments(MailSchema, data);
 
     const mailOptions = {
       from: from(data),
       to: to(data),
       subject: subject(data),
       html: HTML,
-      attachments: await getAttachments(MailSchema, data),
+      attachments: Attachments,
     };
 
     return SMTP.sendMail(mailOptions)
