@@ -1,5 +1,35 @@
 const { FormsService } = require('@/app/services/');
 
+const NewSubscriber = async (req, res) => {
+  try {
+    const { body } = req;
+    const response = await FormsService.main.NewSubscriber(body);
+    if (response?.status === 'success') {
+      return res.status(200).send({
+        status: 'success',
+        message: 'E-mail subscribed successfully.',
+      });
+    }
+
+    if (response?.status === 'duplicate') {
+      return res.status(200).send({
+        status: 'success',
+        message: 'E-mail already subscribed.',
+      });
+    }
+
+    return res.status(500).send({
+      status: 'error',
+      message: 'Something went wrong, please try again later.',
+    });
+  } catch (error) {
+    return res.status(error?.status || 500).send({
+      status: 'error',
+      message: error?.message || error,
+    });
+  }
+};
+
 const NewContactRequest = async (req, res) => {
   try {
     const { body } = req;
@@ -140,6 +170,7 @@ const NewApplication = async (req, res) => {
 
 module.exports = {
   main: {
+    NewSubscriber,
     NewContactRequest,
     NewTalkToSalesRequest,
     NewSampleRequest,
