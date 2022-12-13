@@ -1,5 +1,26 @@
 const { google } = require('googleapis');
 
+const Schemas = {
+  contact: (body) => [
+    body?.fullName,
+    body?.emailAddress,
+    `'${body?.phoneNumber}`,
+    body?.heardUsFrom,
+    body?.subject,
+    body?.message,
+  ],
+  talktosales: (body) => [
+    body?.fullName,
+    body?.emailAddress,
+    `'${body?.phoneNumber}`,
+    body?.autoLocation,
+    body?.manualLocation,
+    body?.customerType,
+    body?.heardUsFrom,
+    body?.interestedProducts,
+  ],
+};
+
 class SpreadsheetService {
   constructor(spreadsheet) {
     this.spreadsheet = spreadsheet;
@@ -15,42 +36,7 @@ class SpreadsheetService {
       contact: process.env.SPREADSHEET_CONTACT_RANGE,
       talktosales: process.env.SPREADSHEET_TALKTOSALES_RANGE,
     };
-    this.schemas = {
-      contact: ({
-        fullName,
-        emailAddress,
-        phoneNumber,
-        heardUsFrom,
-        subject,
-        message,
-      }) => [
-        fullName,
-        emailAddress,
-        `'${phoneNumber}`,
-        heardUsFrom,
-        subject,
-        message,
-      ],
-      talktosales: ({
-        fullName,
-        emailAddress,
-        phoneNumber,
-        autoLocation,
-        manualLocation,
-        customerType,
-        heardUsFrom,
-        interestedProducts,
-      }) => [
-        fullName,
-        emailAddress,
-        `'${phoneNumber}`,
-        autoLocation,
-        manualLocation,
-        customerType,
-        heardUsFrom,
-        interestedProducts,
-      ],
-    };
+    this.schemas = Schemas;
     this.client = new google.auth.JWT(this.clientEmail, null, this.privateKey, [
       this.authURL,
     ]);
