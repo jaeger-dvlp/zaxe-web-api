@@ -6,7 +6,7 @@ const express = require('express');
 const parser = require('body-parser');
 const V1Router = require('@/app/routes');
 const SetupMorgan = require('@/src/utils/SetupMorgan');
-const SMTP = require('@/src/app/configs/config.nodemailer');
+const SMTP = require('@/src/app/configs/nodemailer.config');
 
 const app = express();
 
