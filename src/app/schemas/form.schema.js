@@ -9,6 +9,16 @@ const HandleCareerSocialURL = {
   },
 };
 
+const SubscribeSchema = checkSchema({
+  emailAddress: {
+    in: ['body'],
+    isEmail: true,
+    isLength: {
+      options: { min: 5, max: 100 },
+    },
+  },
+});
+
 const ContactSchema = checkSchema({
   fullName: {
     in: ['body'],
@@ -460,6 +470,7 @@ const ApplicationSchema = checkSchema({
 
 module.exports = {
   main: {
+    SubscribeSchema,
     ContactSchema,
     TalktosalesSchema,
     RequestsampleSchema,
