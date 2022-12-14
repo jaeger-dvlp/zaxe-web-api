@@ -64,11 +64,12 @@ const getXDesktopFirmwareNoteOneVersion = async (version) => {
 
   const firmwareNote = firmwareNotes.find(({ ver }) => ver === version) || null;
 
-  if (!firmwareNote)
+  if (!firmwareNote) {
     throw new ResponseError(
       404,
       'Bzzt! Bzzt! No notes found for given version.'
     );
+  }
 
   return firmwareNote;
 };

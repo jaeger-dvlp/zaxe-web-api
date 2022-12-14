@@ -37,7 +37,7 @@ const SetupMorgan = async (app) => {
 
     return `\x1b[${getStatusColor(status)}m${status}\x1b[0m`;
   });
-  morgan.format('zaxe-log', `[ zaxe-api ] [ :date ] :url => :status`);
+  morgan.format('zaxe-log', '[ zaxe-api ] [ :date ] :url => :status');
   morgan.format(
     'zaxe-live',
     `${chalk

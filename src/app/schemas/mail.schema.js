@@ -106,7 +106,7 @@ const MailSchemas = {
       message,
     }),
     attachment: ({ file }) => file,
-    from: () => `Zaxe 3D | New Request Sample Request <noreply@zaxe.com>`,
+    from: () => 'Zaxe 3D | New Request Sample Request <noreply@zaxe.com>',
     to: () => ['webdev@zaxe.com'],
   },
   'knowledgebase.fb.positive': {

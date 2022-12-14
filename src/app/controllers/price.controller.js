@@ -18,11 +18,12 @@ const getAllPrices = async (req, res) => {
 const getPricesBySlug = async (req, res) => {
   try {
     const { slug } = req.params;
-    if (!slug)
+    if (!slug) {
       res.status(400)({
         status: 'error',
         message: 'Bzzt! Bzzt! Product slug is required.',
       });
+    }
 
     const price = PriceService.getPricesBySlug(slug);
     await res.status(200).send({
@@ -40,11 +41,12 @@ const getPricesBySlug = async (req, res) => {
 const getPricesByCategory = async (req, res) => {
   try {
     const { slug } = req.params;
-    if (!slug)
+    if (!slug) {
       res.status(400)({
         status: 'error',
         message: 'Bzzt! Bzzt! Category slug is required.',
       });
+    }
 
     const prices = PriceService.getPricesByCategory(slug);
     await res.status(200).send({
