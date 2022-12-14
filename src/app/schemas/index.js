@@ -1,4 +1,4 @@
-const { main, knowledgeBase, careers } = require('./form.schema');
+const { main, knowledgeBase, careers, xdesktop } = require('./form.schema');
 
 const { MailSchemas } = require('./mail.schema');
 
@@ -7,4 +7,5 @@ module.exports = {
   main,
   knowledgeBase,
   careers,
+  xdesktop,
 };

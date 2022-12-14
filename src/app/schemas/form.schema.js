@@ -19,6 +19,24 @@ const SubscribeSchema = checkSchema({
   },
 });
 
+const DownloadXDesktopSchema = checkSchema({
+  emailAddress: {
+    in: ['body'],
+    isEmail: true,
+    isLength: {
+      options: { min: 5, max: 100 },
+    },
+    errorMessage: 'Email address is required.',
+  },
+  operatingSystem: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+});
+
 const ContactSchema = checkSchema({
   fullName: {
     in: ['body'],
@@ -481,5 +499,8 @@ module.exports = {
   },
   careers: {
     ApplicationSchema,
+  },
+  xdesktop: {
+    DownloadXDesktopSchema,
   },
 };
