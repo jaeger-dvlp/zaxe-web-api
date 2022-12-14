@@ -2,9 +2,9 @@ name: Zaxe Web API | CI
 
 on:
   push:
-    branches: ['dev', 'live']
+    branches: ['live']
   pull_request:
-    branches: ['dev', 'live']
+    branches: ['live']
 
 env:
   CI: true
