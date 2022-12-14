@@ -4,7 +4,7 @@ const app = require('@/src/app/');
 
 const PORT = process.env.PORT || 3005;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(
     `${chalk
       .hex('#009ade')
@@ -13,3 +13,5 @@ app.listen(PORT, () => {
       )} Server is listening on http://localhost:${PORT}/v1/`
   );
 });
+
+module.exports = server;
