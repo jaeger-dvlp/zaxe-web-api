@@ -38,5 +38,7 @@ jobs:
         run: yarn
       - name: Test env var
         run: echo ${{ env.SMTP_EMAIL_ADDRESS }}
-      - name: Deploy App
-        run: yarn start
+      - name: Test  App
+        env:
+          NODE_ENV: test
+        run: yarn test
