@@ -18,6 +18,24 @@ const getXDesktopFirmwareNotes = async (req, res) => {
   }
 };
 
+const downloadXDesktop = async (req, res) => {
+  try {
+    const { body } = req;
+    const downloadURL = await XDesktopService.downloadXDesktop(body);
+    await res.status(200).send({
+      status: 'success',
+      data: {
+        downloadURL,
+      },
+    });
+  } catch (error) {
+    await res.status(error?.status || 500).send({
+      status: 'error',
+      message: error?.message || error,
+    });
+  }
+};
+
 const getXDesktopFirmwareNoteOneVersion = async (req, res) => {
   try {
     const { version } = req.params;
@@ -46,6 +64,7 @@ const getXDesktopFirmwareNoteOneVersion = async (req, res) => {
 };
 
 module.exports = {
+  downloadXDesktop,
   getXDesktopFirmwareNotes,
   getXDesktopFirmwareNoteOneVersion,
 };
