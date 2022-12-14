@@ -4,16 +4,23 @@
     "node": true,
     "es2021": true,
     "commonjs": true,
-    "browser": false
+    "browser": false,
+    "mocha": true
   },
-  "extends": ["airbnb-base", "eslint:recommended", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:mocha/recommended",
+    "plugin:prettier/recommended"
+  ],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "plugins": [],
+  "plugins": ["mocha"],
   "rules": {
     "import/extensions": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "mocha/no-mocha-arrows": "off"
   }
 }
