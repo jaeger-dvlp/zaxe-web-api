@@ -10,7 +10,9 @@ const SMTP = require('@/src/app/configs/nodemailer.config');
 
 const app = express();
 
-SetupMorgan(app);
+if (process.env.NODE_ENV !== 'test') {
+  SetupMorgan(app);
+}
 
 SMTP.verify((err) => {
   if (err) {
