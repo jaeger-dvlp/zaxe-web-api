@@ -48,6 +48,7 @@
     "prettier": "^2.8.0"
   },
   "_moduleAliases": {
+    "@/": "./",
     "@/src": "./src",
     "@/app": "./src/app"
   }
