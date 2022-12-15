@@ -5,7 +5,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 
 const should = chai.should();
-const server = require('../../server');
+const server = require('@/src/server');
 
 chai.use(chaiHttp);
 
@@ -29,9 +29,10 @@ describe('Price Endpoint:', () => {
   });
 
   it('Should return price array for category', (done) => {
+    const category = '3dprinters';
     chai
       .request(server)
-      .get('/v1/prices/category/3dprinters')
+      .get(`/v1/prices/category/${category}`)
       .end((err, res) => {
         res.should.have.status(200);
         const { body } = res;
