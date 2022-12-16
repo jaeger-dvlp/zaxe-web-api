@@ -24,9 +24,11 @@ SMTP.verify((err) => {
     return;
   }
 
-  console.log(
-    `${chalk.hex('#009ade').bold('[ zaxe-api ]')} SMTP Server is ready.`
-  );
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(
+      `${chalk.hex('#009ade').bold('[ zaxe-api ]')} SMTP Server is ready.`
+    );
+  }
 });
 
 app.use(cors());
