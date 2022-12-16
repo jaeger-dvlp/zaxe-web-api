@@ -5,7 +5,7 @@ const getSMTPCredentials = (NODE_ENV) => {
     const { host, port, user, pass } = JSON.parse(
       process.env.SMTP_TEST_ACCOUNT
     );
-    console.log(JSON.parse(process.env.SMTP_TEST_ACCOUNT));
+
     return nodemailer.createTransport({
       host,
       port,
