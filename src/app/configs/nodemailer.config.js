@@ -1,21 +1,39 @@
 const nodemailer = require('nodemailer');
 
-const {
-  SMTP_EMAIL_ADDRESS: host,
-  SMTP_EMAIL_PORT: port,
-  SMTP_USER_NAME: user,
-  SMTP_USER_PASSWORD: pass,
-} = process.env;
+const getSMTPCredentials = (NODE_ENV) => {
+  if (NODE_ENV === 'test') {
+    const { host, port, user, pass } = JSON.parse(
+      process.env.SMTP_TEST_ACCOUNT
+    );
+    console.log(JSON.parse(process.env.SMTP_TEST_ACCOUNT));
+    return nodemailer.createTransport({
+      host,
+      port,
+      auth: {
+        user,
+        pass,
+      },
+    });
+  }
 
-const SMTP = nodemailer.createTransport({
-  host,
-  port,
-  secure: true,
-  service: 'gmail',
-  auth: {
-    user,
-    pass,
-  },
-});
+  if (NODE_ENV !== 'test') {
+    const { host, port, user, pass } = JSON.parse(process.env.SMTP_ACCOUNT);
+
+    return nodemailer.createTransport({
+      host,
+      port,
+      secure: true,
+      service: 'gmail',
+      auth: {
+        user,
+        pass,
+      },
+    });
+  }
+
+  throw new Error('An error occurred while connecting to SMTP Server.');
+};
+
+const SMTP = getSMTPCredentials(process.env.NODE_ENV);
 
 module.exports = SMTP;
