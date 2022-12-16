@@ -21,6 +21,15 @@ const getDemoSTL = async () => {
 };
 
 describe('Forms Endpoint:', () => {
+  beforeEach(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      })
+  );
+
   it('Should send a Contact Form', (done) => {
     const requestBody = {
       fullName: 'Web Dev Testing',

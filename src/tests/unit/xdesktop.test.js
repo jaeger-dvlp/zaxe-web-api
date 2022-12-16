@@ -10,6 +10,15 @@ const server = require('../../server');
 chai.use(chaiHttp);
 
 describe('xDesktop Endpoint:', () => {
+  beforeEach(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      })
+  );
+
   it('Should return xDesktop Firmware notes', (done) => {
     chai
       .request(server)

@@ -10,6 +10,15 @@ const server = require('../../server');
 chai.use(chaiHttp);
 
 describe('Reseller Endpoint:', () => {
+  beforeEach(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      })
+  );
+
   it('Should return resellers array', (done) => {
     chai
       .request(server)

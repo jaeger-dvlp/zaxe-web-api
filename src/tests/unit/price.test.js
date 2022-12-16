@@ -10,6 +10,15 @@ const server = require('../../server');
 chai.use(chaiHttp);
 
 describe('Price Endpoint:', () => {
+  beforeEach(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      })
+  );
+
   it('Should return price array', (done) => {
     chai
       .request(server)
