@@ -21,6 +21,27 @@ const Schemas = {
   ],
 };
 
+const {
+  NODE_ENV,
+  SPREADSHEET_TEST_CONTACT_RANGE,
+  SPREADSHEET_TEST_TALKTOSALES_RANGE,
+  SPREADSHEET_CONTACT_RANGE,
+  SPREADSHEET_TALKTOSALES_RANGE,
+} = process.env;
+
+const getSheetRange = () => {
+  if (NODE_ENV === 'test') {
+    return {
+      contact: SPREADSHEET_TEST_CONTACT_RANGE,
+      talktosales: SPREADSHEET_TEST_TALKTOSALES_RANGE,
+    };
+  }
+  return {
+    contact: SPREADSHEET_CONTACT_RANGE,
+    talktosales: SPREADSHEET_TALKTOSALES_RANGE,
+  };
+};
+
 class SpreadsheetService {
   constructor(spreadsheet) {
     this.spreadsheet = spreadsheet;
@@ -32,10 +53,7 @@ class SpreadsheetService {
       contact: process.env.SPREADSHEET_CONTACT_ID,
       talktosales: process.env.SPREADSHEET_TALKTOSALES_ID,
     };
-    this.range = {
-      contact: process.env.SPREADSHEET_CONTACT_RANGE,
-      talktosales: process.env.SPREADSHEET_TALKTOSALES_RANGE,
-    };
+    this.range = getSheetRange();
     this.schemas = Schemas;
     this.client = new google.auth.JWT(this.clientEmail, null, this.privateKey, [
       this.authURL,
