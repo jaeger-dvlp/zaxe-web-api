@@ -20,6 +20,15 @@ const getDemoSTL = async () => {
   return file;
 };
 
+const getDemoResume = async () => {
+  const file = fs.readFileSync(
+    path.join(__dirname, '../../data/demo.resume.base64'),
+    'utf8'
+  );
+
+  return file;
+};
+
 describe('Forms Endpoint:', () => {
   beforeEach(
     () =>
@@ -200,4 +209,95 @@ describe('Forms Endpoint:', () => {
         done();
       });
   });
+
+  it('Should send a Career Application with a attached PDF', async () => {
+    return getDemoResume().then(async (resumeFile) => {
+      const requestBody = {
+        person: {
+          fullName: 'Web Dev Testing',
+          emailAddress: 'webdev@zaxe.com',
+          phoneNumber: '+90 532 323 32 32',
+          fullAddress: 'Yesilce, Secilmis Sk. / Kagithane / Istanbul / No 2',
+          githubURL: 'https://github.com/jaeger-dvlp',
+          linkedinURL: '',
+          portfolioURL: 'https://jaeger-dvlp.dev',
+          behanceURL: '',
+          coverLetter: 'CI Testing, cover letter.',
+          legallyEligible: 'yes',
+          eligibilityBasedOnWorkVisa: 'no',
+          resume: {
+            type: 'base64',
+            name: 'webdevResume.pdf',
+            value: resumeFile,
+            url: '',
+          },
+        },
+        role: {
+          id: '010101',
+          title: 'Software Developer',
+          team: 'Development',
+          location: 'Istanbul',
+          type: 'Remote',
+        },
+      };
+
+      await chai
+        .request(server)
+        .post('/v1/forms/careers/apply')
+        .set('Origin', 'https://careers.zaxe.com')
+        .send(requestBody)
+        .then((res) => {
+          const {
+            body: { message },
+          } = res;
+          should.exist(message);
+          message.should.be.eql('Application has been sent successfully.');
+        });
+    });
+  }).timeout(25000);
+
+  it('Should send a Career Application with a Drive Link', (done) => {
+    const requestBody = {
+      person: {
+        fullName: 'Web Dev Testing',
+        emailAddress: 'webdev@zaxe.com',
+        phoneNumber: '+90 532 323 32 32',
+        fullAddress: 'Yesilce, Secilmis Sk. / Kagithane / Istanbul / No 2',
+        githubURL: 'https://github.com/jaeger-dvlp',
+        linkedinURL: '',
+        portfolioURL: 'https://jaeger-dvlp.dev',
+        behanceURL: '',
+        coverLetter: 'CI Testing, cover letter.',
+        legallyEligible: 'yes',
+        eligibilityBasedOnWorkVisa: 'no',
+        resume: {
+          type: 'drive',
+          name: 'webdevResume.pdf',
+          value: '',
+          url: 'https://docs.google.com/document/d/1RrL3hnZS8I6QgOLMZod-UqrYJYKNx6oI5qC1LjE9CL4/edit?usp=sharing',
+        },
+      },
+      role: {
+        id: '010101',
+        title: 'Software Developer',
+        team: 'Development',
+        location: 'Istanbul',
+        type: 'Remote',
+      },
+    };
+
+    chai
+      .request(server)
+      .post('/v1/forms/careers/apply')
+      .set('Origin', 'https://careers.zaxe.com')
+      .send(requestBody)
+      .then((res) => {
+        const {
+          body: { message },
+        } = res;
+        should.exist(message);
+        message.should.be.eql('Application has been sent successfully.');
+        done();
+      });
+  }).timeout(25000);
 });
