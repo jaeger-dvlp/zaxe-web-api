@@ -30,6 +30,31 @@ describe('Forms Endpoint:', () => {
       })
   );
 
+  it('Should subscribe successfully', (done) => {
+    const requestBody = {
+      emailAddress: 'webdev@zaxe.com',
+    };
+    const successfullResponses = [
+      'E-mail subscribed successfully.',
+      'E-mail already subscribed.',
+    ];
+
+    chai
+      .request(server)
+      .post('/v1/forms/subscribe')
+      .set('Origin', 'https://zaxe.com')
+      .send(requestBody)
+      .then((res) => {
+        const {
+          body: { message },
+        } = res;
+
+        should.exist(message);
+        message.should.be.oneOf(successfullResponses);
+        done();
+      });
+  });
+
   it('Should send a Contact Form', (done) => {
     const requestBody = {
       fullName: 'Web Dev Testing',
@@ -45,7 +70,7 @@ describe('Forms Endpoint:', () => {
       .post('/v1/forms/contact')
       .set('Origin', 'https://zaxe.com')
       .send(requestBody)
-      .end((err, res) => {
+      .then((res) => {
         res.should.have.status(200);
         const {
           body: { message },
@@ -73,7 +98,7 @@ describe('Forms Endpoint:', () => {
       .post('/v1/forms/talktosales')
       .set('Origin', 'https://zaxe.com')
       .send(requestBody)
-      .end((err, res) => {
+      .then((res) => {
         const {
           body: { message },
         } = res;
@@ -122,4 +147,57 @@ describe('Forms Endpoint:', () => {
         });
     });
   }).timeout(25000);
+
+  it('Should send a Positive Feedback', (done) => {
+    const requestBody = {
+      article: {
+        title: 'Know Your Zaxe Z3 3D Printer',
+        url: 'https://learn.zaxe.com/products/3dprinters/zaxe-z3/article/know-your-zaxe-z3-3d-printer',
+        language: 'en',
+      },
+    };
+
+    chai
+      .request(server)
+      .post('/v1/forms/kb/feedback/positive')
+      .set('Origin', 'https://zaxe.com')
+      .send(requestBody)
+      .then((res) => {
+        const {
+          body: { message },
+        } = res;
+
+        should.exist(message);
+        message.should.be.eql('Feedback has been sent successfully.');
+        done();
+      });
+  });
+
+  it('Should send a Feedback', (done) => {
+    const requestBody = {
+      fullName: 'Web Dev',
+      emailAddress: 'webdev@zaxe.com',
+      message: 'CI Testing purpose..',
+      article: {
+        title: 'Know Your Zaxe Z3 3D Printer',
+        url: 'https://learn.zaxe.com/products/3dprinters/zaxe-z3/article/know-your-zaxe-z3-3d-printer',
+        language: 'en',
+      },
+    };
+
+    chai
+      .request(server)
+      .post('/v1/forms/kb/feedback/')
+      .set('Origin', 'https://zaxe.com')
+      .send(requestBody)
+      .then((res) => {
+        const {
+          body: { message },
+        } = res;
+
+        should.exist(message);
+        message.should.be.eql('Feedback has been sent successfully.');
+        done();
+      });
+  });
 });
