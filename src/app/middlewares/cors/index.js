@@ -3,6 +3,7 @@ const AllowedOrigins = [
   'https://www.zaxe.com',
   'https://learn.zaxe.com',
   'https://careers.zaxe.com',
+  'https://warranty.zaxe.com',
 ];
 
 const AllowRequest = (req, res, next) => {
