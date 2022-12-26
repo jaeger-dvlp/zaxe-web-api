@@ -6,10 +6,13 @@ const UploadFile = async (req, res) => {
   } = req;
   try {
     const response = await WarrantyService.UploadFile(file);
-    if (response?.status === 'success') {
+    if (response.status === 'success') {
       return res.status(200).send({
         status: 'success',
         message: 'File has been uploaded successfully.',
+        data: {
+          fileURL: response.fileURL,
+        },
       });
     }
     return res.status(500).send({
