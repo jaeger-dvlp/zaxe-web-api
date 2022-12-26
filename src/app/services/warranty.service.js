@@ -3,7 +3,6 @@ const FileService = require('./file.service');
 const UploadFile = async (file) => {
   try {
     const response = await FileService.UploadFile(file);
-    console.log(response);
     if (response?.status === 'success') {
       return { status: 'success', fileURL: response?.fileURL };
     }
