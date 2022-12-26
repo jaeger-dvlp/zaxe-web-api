@@ -42,7 +42,10 @@ class FileService {
       });
 
       if (response.status === 200) {
-        return 'sent';
+        return {
+          status: 'success',
+          fileURL: `https://drive.google.com/file/d/${response.data.id}/view?usp=sharing`,
+        };
       }
 
       throw new Error(response?.error?.message || 'Error uploading file');
