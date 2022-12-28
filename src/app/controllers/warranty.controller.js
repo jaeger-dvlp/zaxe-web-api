@@ -1,21 +1,21 @@
 const WarrantyService = require('@/app/services/warranty.service');
 
 const UploadFile = async (req, res) => {
-  const {
-    body: { file },
-  } = req;
   try {
-    const response = await WarrantyService.UploadFile(file);
-    if (response.status === 'success') {
-      return res.status(200).send({
+    const {
+      body: { invoiceImage: file },
+    } = req;
+    const { status, fileURL } = await WarrantyService.UploadFile(file);
+    if (status === 'success') {
+      return await res.status(200).send({
         status: 'success',
         message: 'File has been uploaded successfully.',
         data: {
-          fileURL: response.fileURL,
+          fileURL,
         },
       });
     }
-    return res.status(500).send({
+    return await res.status(500).send({
       status: 'error',
       message: 'Something went wrong, please try again later.',
     });
