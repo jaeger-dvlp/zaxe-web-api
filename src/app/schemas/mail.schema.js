@@ -197,7 +197,7 @@ const MailSchemas = {
   },
   'warranty.apply.user': {
     path: 'warranty/apply.mail.html',
-    subject: () => `About Your Warranty Start Record`,
+    subject: () => `About Your Warranty Registration`,
     replacement: ({ name, surname, deviceSerialNumber }) => ({
       fullName: `${name} ${surname}`,
       deviceSerialNumber,
