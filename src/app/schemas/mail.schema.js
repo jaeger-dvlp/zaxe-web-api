@@ -218,7 +218,6 @@ const MailSchemas = {
       country,
       distributorName,
       companyName,
-      invoiceImage,
     }) => ({
       fullName: `${name} ${surname}`,
       purchaseDate,
@@ -228,7 +227,6 @@ const MailSchemas = {
       country,
       distributorName,
       companyName,
-      invoiceURL: invoiceImage,
     }),
     from: () => 'Zaxe 3D | Warranty <noreply@zaxe.com>',
     to: () => ['webdev@zaxe.com'],
