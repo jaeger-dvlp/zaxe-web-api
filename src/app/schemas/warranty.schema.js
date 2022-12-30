@@ -98,4 +98,79 @@ const UploadSchema = checkSchema({
   },
 });
 
-module.exports = { UploadSchema };
+const RegisterSchema = checkSchema({
+  name: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  surname: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  purchaseDate: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  deviceSerialNumber: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 5 },
+    },
+  },
+  emailAddress: {
+    in: ['body'],
+    isString: true,
+    isEmail: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  phoneNumber: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  country: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  companyName: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  distributorName: {
+    in: ['body'],
+    isString: true,
+
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+  invoiceImage: {
+    in: ['body'],
+    isString: true,
+    isLength: {
+      options: { min: 1 },
+    },
+  },
+});
+
+module.exports = { UploadSchema, RegisterSchema };

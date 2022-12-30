@@ -195,6 +195,44 @@ const MailSchemas = {
     to: () => ['webdev@zaxe.com'],
     attachment: async ({ person: { resume } }) => resume,
   },
+  'warranty.apply.user': {
+    path: 'warranty/apply.mail.html',
+    subject: () => `About Your Warranty Start Record`,
+    replacement: ({ name, surname, deviceSerialNumber }) => ({
+      fullName: `${name} ${surname}`,
+      deviceSerialNumber,
+    }),
+    from: () => 'Zaxe 3D | Warranty <noreply@zaxe.com>',
+    to: ({ emailAddress }) => emailAddress,
+  },
+  'warranty.apply.admin': {
+    path: 'warranty/admin.apply.mail.html',
+    subject: () => `New Warranty Registration`,
+    replacement: ({
+      name,
+      surname,
+      purchaseDate,
+      deviceSerialNumber,
+      emailAddress,
+      phoneNumber,
+      country,
+      distributorName,
+      companyName,
+      invoiceImage,
+    }) => ({
+      fullName: `${name} ${surname}`,
+      purchaseDate,
+      deviceSerialNumber,
+      emailAddress,
+      phoneNumber,
+      country,
+      distributorName,
+      companyName,
+      invoiceURL: invoiceImage,
+    }),
+    from: () => 'Zaxe 3D | Warranty <noreply@zaxe.com>',
+    to: () => ['webdev@zaxe.com'],
+  },
 };
 
 module.exports = { MailSchemas };
