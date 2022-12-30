@@ -15,4 +15,10 @@ router.post(
   WarrantyController.UploadFile
 );
 
+router.post(
+  '/warranty/register',
+  [WarrantySchema.RegisterSchema, Validator],
+  WarrantyController.WarrantyRegistration
+);
+
 module.exports = router;
